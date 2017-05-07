@@ -37,12 +37,12 @@ class DndController extends Controller
 
   	// $extension = File::extension($module->filePath);
   	
-  	$extension = Storage::disk('s3')->extension($module->filePath);
+  	$extension = Storage::disk('s3')->get($module->filePath);
 
   	// $mimeType = File::mimeType(storage_path("app/{$module->filePath}"));
-  	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
-  	
-  	return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
+  	// $mimeType = Storage::disk('s3')->mimeType($module->filePath);
+  	dd($extension);
+  	// return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
   }
 
   public function search(Request $request)
