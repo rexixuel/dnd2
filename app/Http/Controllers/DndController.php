@@ -39,7 +39,7 @@ class DndController extends Controller
   	
 
   	// $mimeType = File::mimeType(storage_path("app/{$module->filePath}"));
-  	$extension = end(explode($module->filePath,'.'));
+  	$extension = end(explode('.',$module->filePath));
   	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
   	$path = Storage::cloud()->get($module->filePath);
   	
