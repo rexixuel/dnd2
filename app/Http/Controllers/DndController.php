@@ -39,13 +39,18 @@ class DndController extends Controller
   	
 
   	// $mimeType = File::mimeType(storage_path("app/{$module->filePath}"));
-  	$extension = end(explode('.',$module->filePath));
+  	// $extension = end(explode('.',$module->filePath));
   	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
   	$path = Storage::cloud()->get($module->filePath);
   	
-  	return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
+  	$response = Response::make($path, 200);
+  	$response->header("Content-Type", $mimeType);
+
+  	return $response;
+
+  	// return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
   	// return response()->download($path, $module->title, ['Content-Type' => $mimeType]);
-  	// return response($path,200, ['Content-Type' => $mimeType]);
+  	
   }
 
   public function search(Request $request)
