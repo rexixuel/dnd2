@@ -37,7 +37,7 @@ class DndController extends Controller
 
   	// $extension = File::extension($module->filePath);
   	
-  	$extension = Storage::disk('s3')->get($module->filePath)->extension();
+  	$extension = Storage::extension($module->filePath);
 
   	// $mimeType = File::mimeType(storage_path("app/{$module->filePath}"));
   	// $mimeType = Storage::disk('s3')->mimeType($module->filePath);
