@@ -47,8 +47,7 @@
 
       <footer class="footer">
         <div class="col-xs-4">
-           <p class="text-left footer-text"> Copyright <i class="glyphicon glyphicon-copyright-mark"> </i>  Team Dimaunahan <br />
-          MTM
+           <p class="text-left footer-text"> Copyright <i class="glyphicon glyphicon-copyright-mark"> </i>  Team Dimaunahan 
           </p> 
           <div class="clear"> </div>
         </div>

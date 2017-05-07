@@ -106,7 +106,8 @@ class DndController extends Controller
 
 
 	    // store to public/storage/compreDump
-	  	$path = $file->store('compreDump');
+	  	// $path = $file->store('compreDump');
+	  	$path = $file->store('compreDump', 's3');
 
 		// $moduleFields = $request->all();		
 		$moduleFields['filePath'] = $path;		
