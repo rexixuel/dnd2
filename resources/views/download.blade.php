@@ -21,7 +21,7 @@
 		    </div> <!-- modal content -->
 		  </div> <!-- modal dialog -->
 		</div> <!-- modal -->
-		<div class="container">	
+		<div class="container-fluid">	
 
 			<div class="pageTitle">
 				<h1 class="text-center"> Download Modules </h1>
