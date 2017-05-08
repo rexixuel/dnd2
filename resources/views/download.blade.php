@@ -44,7 +44,7 @@
 						<td> {{ $module->author }} </td>
 						<td> {{ $module->course->title }} </td>
 						<td> {{ $module->created_at }} </td>
-						<td> <a href="download/{{$module->id}}" class="btn btn-danger"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
+						<td> <a href="download/{{$module->id}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
 							<td> <a href="delete/{{$module->id}}" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
 						@endif
