@@ -30,19 +30,26 @@
 			<div class="moduleList">
 				<table class="table table-striped table-hover table-responsive">
 					<thead>
+					  <tr>
 						<th> Title </th>
 						<th> Author </th>
 						<th> Course </th>
-						<th colspan="2"> Uploaded on </th>
+						<th colspan="3"> Uploaded on </th>
+					  </tr>
 					</thead>
+					<tbody>
 				@foreach ($modules as $module)
-					<tr>
+					  <tr>
 						<td> <a href="download/{{$module->id}}" > {{ $module->title }} </a> </td>
 						<td> {{ $module->author }} </td>
 						<td> {{ $module->course->title }} </td>
 						<td> {{ $module->created_at }} </td>
-						<td> <a href="download/{{$module->id}}"> Download </a> </td>
-					</tr>
+						<td> <a href="download/{{$module->id}}"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
+						@if(Auth::user()->role < 1)
+							<td> <a href="delete/{{$module->id}}" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+						@endif
+					  </tr>
+					</tbody>
 				@endforeach
 				</table>
 			</div>
