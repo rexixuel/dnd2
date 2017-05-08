@@ -20,8 +20,10 @@ Route::get('download', 'DndController@download');
 Route::post('download', 'DndController@search');
 Route::get('download/{id}', 'DndController@getFile');
 Route::post('delete', 'DndController@delete');
-Route::get('quiz', 'DndController@takeQuiz');
-Route::post('quiz','DndController@gradeQuiz' );
+
+Route::get('quiz', 'QuizController@takeQuiz');
+Route::post('quiz','QuizController@gradeQuiz' );
+
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('upload','DndController@store' );
 
