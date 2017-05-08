@@ -27,7 +27,7 @@
 				<h1 class="text-center"> Download Modules </h1>
 				<!-- <h3 class="text-center"> <small> Click the link to download module </small> </h3> -->
 			</div>
-			<div class="searchForm container centerDiv">
+			<div class="searchForm">
 				<form class="form form-inline" method="POST" action="download" role="form">
 					{{ csrf_field() }}
 					<div class="input-group col-md-3">
