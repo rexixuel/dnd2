@@ -14,7 +14,7 @@
 		      <div class="modal-footer">
 		        <form class="form form-inline" method="POST" action="delete" role="form">
 				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
-				<button type="submit" class="btn btn-danger" name="deleteId">Delete</button>
+				<button type="submit" class="btn btn-danger" name="deleteId" id="deleteId">Delete</button>
 			</form>
 		      </div> <!-- modal footer -->		      
 		    </div> <!-- modal content -->
