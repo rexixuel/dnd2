@@ -1,7 +1,7 @@
 @extends('layouts.app',['title' => 'Upload'])
 
 @section ('content')
-		<div class="container">	
+		<div class="container-fluid">	
 
 			<div class="pageTitle">
 				<h1 class="text-center"> Upload Modules </h1>
