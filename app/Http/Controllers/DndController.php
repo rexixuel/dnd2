@@ -34,16 +34,18 @@ class DndController extends Controller
   {
   	$module = new Module();
   	$module = $module->findOrFail($id);
-
+	
+	// for production. Storage does not support extraction of extension name natively
   	$extension = explode('.', $module->filePath);
 	$extension = end($extension);
-	dd($extension);
+	
   	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
   	$path = Storage::cloud()->get($module->filePath);
   	
   	// return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
 
-  	return response($path,200, ['Content-Type' => $mimeType, 'Content-Disposition' => 'attachment; filename="'.$module->title.'"']);
+  	return response($path,200, ['Content-Type' => $mimeType, 
+				    'Content-Disposition' => 'attachment; filename="'.$module->title.'.'.$extension.'"']);
   }
 
   public function search(Request $request)
