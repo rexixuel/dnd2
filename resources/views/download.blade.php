@@ -71,10 +71,10 @@
 						<td> {{ $module->created_at }} </td>
 						<td> <a href="download/{{$module->id}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
-							<td> <a class="btn btn-danger delete" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
+							<td> <button class="btn btn-danger delete" type="button" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
 								data-id="{{$module->id}}"> 							        
 							     	<i class="fa fa-trash" aria-hidden="true"></i> 
-							     </a> 
+							     </button> 
 							</td>
 						@endif
 					  </tr>
