@@ -15,10 +15,23 @@ class DndController extends Controller
 
   public function __construct()
   {
-  	$this->middleware('isAdmin')->only('upload', 'store');
+  	$this->middleware('isAdmin')->only('upload', 'store', 'delete');
   	$this->middleware('auth');
   }
 
+  public function delete ($id)
+  {
+  	$module = new Module();
+	$module = $module->find($id);
+	  
+	Storage::cloud()->delete($module->filePath);  
+	
+	$title = $module->title;
+	  
+	$module->delete();
+  	return back();
+  }  	
+	
   public function download ()
   {
   	$module = new Module();
