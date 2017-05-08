@@ -4,7 +4,7 @@
 		<div class="modal fade" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="delete">
 		  <div class="modal-dialog modal-sm" role="document">
 		    <div class="modal-content alert alert-warning">
-		      <div class="modal-header">
+		      <div class="modal-header alert-warning">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="modalLabel">Deleting File...</h4>
 		      </div> <!-- modal header -->
