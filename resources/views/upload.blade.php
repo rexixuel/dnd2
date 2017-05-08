@@ -26,7 +26,7 @@
 						</div>
 					  </div>
 					</div>
-					<div class="panel panel-info fileMeta">
+					<div class="panel panel-info fileMeta fade">
 						<div class="row">
 						  <div class="col-md-12 form form-horizontal">
 							<div class="form-group {{ $errors->has('title.0') ? ' has-error' : '' }} ">					
