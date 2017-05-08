@@ -19,6 +19,9 @@ Route::get('upload', 'DndController@upload');
 Route::get('download', 'DndController@download');
 Route::post('download', 'DndController@search');
 Route::get('download/{id}', 'DndController@getFile');
+Route::get('delete/{id}', 'DndController@getFile');
+Route::get('quiz', 'DndController@takeQuiz');
+Route::post('quiz','DndController@gradeQuiz' );
 Route::get('logout', 'Auth\LoginController@logout');
 Route::post('upload','DndController@store' );
 
