@@ -30,7 +30,7 @@ class DndController extends Controller
 	  
 	$module->delete();
 	  
-  	return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul>'.$title."</ul>"); );
+  	return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul>'.$title."</ul>");
   }  	
 	
   public function download ()
