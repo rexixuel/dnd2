@@ -15,7 +15,7 @@
 			<form class="form form-group" method="POST" action="upload" enctype="multipart/form-data" role="form">
 				{{ csrf_field() }}				
 				<div class="input-container">
-					<div class="row container">
+					<div class="row">
 					  <div class="col-md-12 form-group">
 						<div class="form-group box">
 							<div class="boxInput">
