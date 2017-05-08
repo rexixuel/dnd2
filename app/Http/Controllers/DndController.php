@@ -19,10 +19,10 @@ class DndController extends Controller
   	$this->middleware('auth');
   }
 
-  public function delete ($id)
+  public function delete (Request $request)
   {
   	$module = new Module();
-	$module = $module->find($id);
+	$module = $module->find($request->deleteId);
 	  
 	Storage::cloud()->delete($module->filePath);  
 	
