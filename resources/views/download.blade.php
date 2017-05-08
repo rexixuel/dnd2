@@ -1,25 +1,25 @@
 @extends('layouts.app',['title' => 'Download'])
 @section ('content')
 		<!-- Small modal -->		
-		<div class="modal fade alert alert-warning deleteWarning" tabindex="-1" role="dialog" aria-labelledby="delete">
+		<div class="modal fade alert alert-warning" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="delete">
 		  <div class="modal-dialog modal-sm" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="modalLabel">Deleting File...</h4>
-		      </div>
+		      </div> <!-- modal header -->
 		      <div class="modal-body">
-		         <p id="deleteWarning"> </p> 
-		      </div>
+		         <p id="deleteWarningMessage"> </p> 
+		      </div> <!-- modal body -->
 		      <div class="modal-footer">
 		        <form class="form form-inline" method="POST" action="delete" role="form">
 				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
 				<button type="submit" class="btn btn-danger" name="deleteId">Delete</button>
 			</form>
-		      </div>		      
-		    </div>
-		  </div>
-		</div>
+		      </div> <!-- modal footer -->		      
+		    </div> <!-- modal content -->
+		  </div> <!-- modal dialog -->
+		</div> <!-- modal -->
 		<div class="container">	
 
 			<div class="pageTitle">
@@ -71,7 +71,7 @@
 						<td> {{ $module->created_at }} </td>
 						<td> <a href="download/{{$module->id}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
-							<td> <a class="btn btn-danger delete" data-toggle="modal" data-target=".deleteWarning" data-title="{{ $module->title }}"
+							<td> <a class="btn btn-danger delete" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
 								data-id="{{$module->id}}"> 							        
 							     	<i class="fa fa-trash" aria-hidden="true"></i> 
 							     </a> 
