@@ -13,6 +13,7 @@
 		      </div> <!-- modal body -->
 		      <div class="modal-footer">
 		        <form class="form form-inline" method="POST" action="delete" role="form">
+				{{ csrf_field() }}
 				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
 				<button type="submit" class="btn btn-danger" name="deleteId" id="deleteId">Delete</button>
 			</form>
