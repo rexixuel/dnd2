@@ -95,14 +95,15 @@ class DndController extends Controller
 
   public function upload ()
   {
-  	$course = new Course();
-  	$courses = $course::all();
+    phpinfo();
+    $course = new Course();
+    $courses = $course::all();
 
-  	return view('upload', compact('courses'));
+    return view('upload', compact('courses'));
   }
 
   public function store (Request $request)
-  {  	
+  {   
     phpinfo();
   	$fileCount = 0;
 
