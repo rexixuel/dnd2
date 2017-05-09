@@ -31,12 +31,12 @@ body {
 
 .navbar-brand img
 {
-	float:left;
+	height: 150px;
 }
 
-.nav-header
+.navbar
 {
-	margin-bottom: 100px;
+	margin-bottom: 150px;
 }
 
 .nav ul li, .footer
@@ -118,6 +118,23 @@ body {
     margin: 0 auto;
     width:100%;
 }
+
+div.carousel-news
+{
+  margin-bottom: 60px;  
+}
+
+.carousel-inner .item
+{
+  height: 400px;
+}
+
+.carousel-inner .item > img
+{
+  width: 100%;
+}
+
+
 section
 {
   padding-bottom: 60px;
@@ -135,5 +152,5 @@ section
   left: 0;
   height:60px;
   padding: 10px 1px 10px 1px; 
-  text-align: center;
+  /*text-align: center;*/
 }

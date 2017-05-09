@@ -8,6 +8,7 @@
       <script src="js/jquery.min.js" type="text/javascript"> </script>
       <script src="js/dnd.js" type="text/javascript"> </script>
       <script src="js/modal.js"></script>      
+      <script src="js/carousel.js"></script>      
     <!-- Fonts -->
 
     <!-- Stylesheets -->
@@ -20,27 +21,34 @@
       <nav class="nav">
         <ul class="nav nav-justified"> 
           <li>
-            <a href="{{ URL::asset('about')}}"> About </a> 
+            <a href="{{ URL::asset('about')}}"> <i class="fa fa-info-circle" aria-hidden="true"></i>
+About </a> 
           </li>
           <li>
-            <a href="{{ URL::asset('faqs')}}"> FAQs </a> 
+            <a href="{{ URL::asset('faqs')}}"> <i class="fa fa-question-circle" aria-hidden="true"></i>
+
+FAQs </a> 
           </li>
           @if (Auth::check())              
               @include('modules.navlinks')
           @else
             <li>
-              <a href="{{ url('/login') }}">Login</a>
+              <a href="{{ url('/login') }}"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
             </li>
             <li>
-              <a href="{{ url('/register') }}">Register</a>
+              <a href="{{ url('/register') }}"> <i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
             </li>
           @endif          
         </ul>      
       </nav>
-      <nav class="nav nav-header">
-        <header class="nav navbar-header">
-          <a href="/" class="navbar-brand center-block"> <img src="img/tmclogo3.png" class="img-responsive"/>  </a>
-        </header>        
+      <nav class="navbar">
+        <div class="container-fluid">
+          <header class="navbar-header">
+            <a href="/" class="navbar-brand center-block"> <img src="img/tmc_logo.png" class="img-responsive navbar-left"/> 
+            <h1 class="navbar-right"> Technology Management Center </h1>
+            <h4> University of the Philippines, Diliman</h3> </a>
+          </header>        
+        </div>
       </nav>
       <section>
         @yield('content')       
@@ -48,15 +56,13 @@
 
       <footer class="footer">
         <div class="col-xs-4">
-           <p class="text-left footer-text"> Copyright <i class="glyphicon glyphicon-copyright-mark"> </i>  Team Dimaunahan 
-          </p> 
+           <small> <p class="text-left"> Copyright <i class="glyphicon glyphicon-copyright-mark"> </i>  MTM </p>
+          </small> 
           <div class="clear"> </div>
         </div>
         <div class="col-xs-8">
-          <p class="text-right footer-text"> Comprehensive Exam Drag and Drop <br />
-           All Rights Reserved </p>
-
-          <div class="clear"> </div>
+          <small> <p class="text-right"> Comprehensive Exam Online Learning Tool <br />
+           All Rights Reserved </p> </small>          
         </div>          
       
       </footer>
