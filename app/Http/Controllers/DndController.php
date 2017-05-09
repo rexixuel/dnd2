@@ -94,8 +94,7 @@ class DndController extends Controller
   }
 
   public function upload ()
-  {
-    phpinfo();
+  {    
     $course = new Course();
     $courses = $course::all();
 
@@ -103,8 +102,7 @@ class DndController extends Controller
   }
 
   public function store (Request $request)
-  {   
-    phpinfo();
+  {      
   	$fileCount = 0;
 
 	  do{
