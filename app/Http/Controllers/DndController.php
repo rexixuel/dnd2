@@ -103,16 +103,16 @@ class DndController extends Controller
 
   public function store (Request $request)
   {  	
-
+    phpinfo();
   	$fileCount = 0;
 
-	do{
-		$this->validate($request, [
-	        'filePath.'.$fileCount => 'required',	        
-	        'author.'.$fileCount => 'required|max:255',
-	    ]);
+	  do{
+  		$this->validate($request, [
+  	        'filePath.'.$fileCount => 'required',	        
+  	        'author.'.$fileCount => 'required|max:255',
+  	    ]);
 
-		$fileCount++;
+  		$fileCount++;
 
   	}while($fileCount < count($request['filePath']));
 

@@ -9,9 +9,12 @@
             @endif                    									
 			<form class="form" method="POST" action="quiz" role="form">
 				{{ csrf_field() }}
-				{!! $quizForm !!}
-				<br />
-				<button type="submit" class="btn btn-primary" name="submitAnswer" id="submitAnswer" value="Submit">Submit</button>
+				<div class="input input-group">
+				{!! $quizForm !!}				
+				</div>
+				<div class="btn-group">
+					<button type="submit" class="btn btn-primary" name="submitAnswer" id="submitAnswer" value="Submit">Submit</button>
+				</div>
 			</form>
 	    </div>
 @stop
