@@ -15,17 +15,23 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('upload', 'DndController@upload');
-Route::get('download', 'DndController@download');
-Route::post('download', 'DndController@search');
-Route::get('download/{id}', 'DndController@getFile');
+Route::get('upload', 'DndController@uploadDefault');
+Route::get('upload/{courseId}', 'DndController@upload');
+Route::post('upload','DndController@storeDefault' );
+Route::post('upload/{courseId}','DndController@store' );
+
+
+Route::get('download', 'DndController@downloadDefault');
+Route::get('download/{courseId}', 'DndController@download');
+Route::get('grab/{moduleId}', 'DndController@getFile');
+Route::post('download', 'DndController@searchDefault');
+Route::post('download/{id}', 'DndController@search');
 Route::post('delete', 'DndController@delete');
 
 Route::get('quiz', 'QuizController@takeQuiz');
 Route::post('quiz','QuizController@gradeQuiz' );
 
 Route::get('logout', 'Auth\LoginController@logout');
-Route::post('upload','DndController@store' );
 
 Auth::routes();
 

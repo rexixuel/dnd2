@@ -1,4 +1,5 @@
 @extends('layouts.app',['title' => 'Download'])
+
 @section ('content')
 		<!-- Small modal -->		
 		<div class="modal fade" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="delete">
@@ -14,13 +15,16 @@
 		      <div class="modal-footer">
 		        <form class="form form-inline" method="POST" action="delete" role="form">
 				{{ csrf_field() }}
-				<button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
-				<button type="submit" class="btn btn-danger" name="deleteId" id="deleteId">Delete</button>
-			</form>
+				  <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
+				  <button type="submit" class="btn btn-danger" name="deleteId" id="deleteId">Delete</button>
+				</form>
 		      </div> <!-- modal footer -->		      
 		    </div> <!-- modal content -->
 		  </div> <!-- modal dialog -->
 		</div> <!-- modal -->
+
+		@include('modules.courseTabs', ['link' => 'download'])
+
 		<div class="container-fluid">	
 
 			<div class="pageTitle">
@@ -34,14 +38,6 @@
 						<div class="input-group-addon"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></div>
 						<input type="text" class="form-control" name="searchField" id="searchField"
 						placeholder="Search by title, author, tags. Leave empty to browse all modules in specified course" />
-					</div>
-					<div class="input-group ">
- 					  <select id="course" name="course_id" class="dropdown form-control">
-							<option value="0"> All Courses </option>
-						@foreach($courses as $course)
-							<option value="{{ $course->id }}"> {{ $course-> title }} </option>
-						@endforeach
-					  </select>					
 					</div>
 					<div class="input-group col-md-6">					
 						<button type="submit" name="search" id="search" class="btn btn-default"> Search </button>
@@ -70,7 +66,7 @@
 						<td> {{ $module->author }} </td>
 						<td> {{ $module->course->title }} </td>
 						<td> {{ $module->created_at }} </td>
-						<td> <a href="download/{{$module->id}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
+						<td> <a href="{{ asset('grab/'.$module->id)}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
 							<td> <button class="btn btn-danger delete" type="button" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
 								data-id="{{$module->id}}"> 							        
@@ -84,5 +80,5 @@
 				</table>
 			</div>
 
-	    </div>
+	    </div>		
 @stop

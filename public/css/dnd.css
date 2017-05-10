@@ -29,27 +29,58 @@ body {
   background-color: #fdfdfd;
 }
 
+.nav.navbar
+{
+  height: 100px;
+}
+
+.carousel-caption
+{
+  background: rgba(0, 0, 0, 0.7)  
+}
+
 .navbar-brand img
 {
-	height: 150px;
+	height: 75px;
+}
+
+.navbar-brand, .navbar
+{
+  height: 100%;
 }
 
 .navbar
 {
-	margin-bottom: 150px;
+  margin-bottom: 50px;
 }
-
-.nav ul li, .footer
+.footer
 {
   background-color: maroon;
 }
 
-.nav ul li a:hover
+ul.navbar-nav
 {
-  background-color: #c17171;
+  margin-top: 10px;
 }
 
-.nav a, .footer
+.navbar-nav li a
+{
+  padding: 8px 20px;
+  color: white;
+}
+.nav ul li
+{
+  background-color: #1b2021;  
+  padding:0.5px;
+}
+
+.nav ul li a:hover
+{
+  background-color: #30343f;
+}
+
+
+.footer
 {
   color:white;
 }

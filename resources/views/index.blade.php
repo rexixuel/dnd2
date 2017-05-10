@@ -24,9 +24,11 @@
 			    </div>
 			    <div class="item"> 
 			      <img src="https://images.unsplash.com/photo-1475085807956-5e76cdaf6639?dpr=1&auto=compress,format&fit=crop&w=1199&h=899&q=80&cs=tinysrgb&crop=&bg=" alt="This is news 2">
-			      <div class="carousel-caption">
-			        <h1> News 2 </h1>
+			      <div class="carouselOpacity">
+			        <div class="carousel-caption">
+			          <h1> News 2 </h1>
 						<p> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </p>
+			        </div>
 			      </div>
 			    </div>			    
 			  </div>

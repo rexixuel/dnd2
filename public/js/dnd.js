@@ -45,7 +45,7 @@ $(document).ready(function(){
 		if($numOfFiles > 1)
 		{			
 			do{								
-				$fileMeta.clone().appendTo('.input-container').addClass('clone').prepend('<div class="panel-heading fileTitle"><strong>' + this.files[$x].name + '</strong></div>');
+				$fileMeta.clone().appendTo('.panelGrid').addClass('clone').prepend('<div class="panel-heading fileTitle"><strong>' + this.files[$x].name + '</strong></div>');
 				
 				$fileMetaClone = $('.fileMeta.clone');				
 				

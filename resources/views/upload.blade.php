@@ -2,7 +2,7 @@
 
 @section ('content')
 		<div class="container-fluid">	
-
+			@include('modules.courseTabs', ['link' => 'upload'])
 			<div class="pageTitle">
 				<h1 class="text-center"> Upload Modules </h1>
 				<h3 class="text-center"> <small> Browse or drag and drop modules to upload. Edit file details on the form that will appear. </small> </h3>
@@ -12,7 +12,7 @@
                 	{!! session('message') !!}
                 </div>
             @endif                    						
-			<form class="form form-group" method="POST" action="upload" enctype="multipart/form-data" role="form">
+			<form class="form form-group" method="POST" action="{{ asset('upload/'.$courseId) }}" enctype="multipart/form-data" role="form">
 				{{ csrf_field() }}				
 				<div class="input-container">
 					<div class="row">
@@ -26,9 +26,10 @@
 						</div>
 					  </div>
 					</div>
-					<div class="panel panel-info fileMeta">
-						<div class="row">
-						  <div class="col-md-12 form form-horizontal">
+					<div class="row panelGrid">
+					  <div class="col-md-4 fileMeta">
+					    <div class="panel panel-info">
+						  <div class="form form-horizontal">
 							<div class="form-group {{ $errors->has('title.0') ? ' has-error' : '' }} ">					
 								<label class="col-sm-2 control-label" for="title" name="titleLabel[]" id="titleLabel"> Title </label>
 								<div class="col-sm-8">
@@ -39,16 +40,6 @@
 								<label class="col-sm-2 control-label" for="author" name="authorLabel[]" id="authorLabel"> Author </label>
 								<div class="col-sm-8">
 									<input class="form-control" type="text" name="author[]" id="author" required autocomplete />
-								</div>
-							</div>					
-							<div class="form-group">
-								<label class="col-sm-2 control-label" for="course_id" name="courseLabel[]" id="courseLabel"> Course </label>
-								<div class="col-sm-8">
-									<select id="course" name="course_id[]" class="dropdown form-control">
-										@foreach($courses as $course)
-											<option value="{{ $course->id }}"> {{ $course-> title }} </option>
-										@endforeach
-									</select>
 								</div>
 							</div>					
 							<div class="form-group">
@@ -72,7 +63,7 @@
 								</div>
 							</div>																				
 						  </div>
-						</div>
+					    </div>
 					</div>
 				</div>
    			    <div class="row fileMeta-buttons">

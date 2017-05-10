@@ -32,16 +32,22 @@ class DndController extends Controller
 	  
   	return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul>'.$title."</ul>");
   }  	
-	
-  public function download ()
+
+	public function downloadDefault()
   {
+    return $this->download(1);
+  }
+
+  public function download ($courseId)
+  {
+
   	$module = new Module();
-  	$modules = $module::all();
+  	$modules = $module->where('course_id','=',$courseId)->get();
 
   	$course = new Course();
   	$courses = $course::all();
 
-  	return view('download', compact('modules', 'courses'));
+  	return view('download', compact('modules', 'courses','courseId'));
   }  
 
   public function getFile($id)
@@ -62,7 +68,7 @@ class DndController extends Controller
 				    'Content-Disposition' => 'attachment; filename="'.$module->title.'.'.$extension.'"']);
   }
 
-  public function search(Request $request)
+  public function search(Request $request, $id)
   {
   	$module = new Module();  	
   	if(!empty($request['course_id']))
@@ -93,15 +99,22 @@ class DndController extends Controller
   	return view('download', compact('modules', 'courses'));  	
   }
 
-  public function upload ()
+  public function uploadDefault()
+  {
+    return $this->upload(1);
+  }
+
+
+  public function upload ($courseId)
   {    
+
     $course = new Course();
     $courses = $course::all();
 
-    return view('upload', compact('courses'));
+    return view('upload', compact('courses', 'courseId'));
   }
 
-  public function store (Request $request)
+  public function store (Request $request, $courseId)
   {      
   	$fileCount = 0;
 
@@ -117,16 +130,16 @@ class DndController extends Controller
 
   	$fileCount = 0;  	
   	$fileList = "";  	
-
+    
   	do{
 
-	    // Get the file from the request
-	    $file = $request['filePath'][$fileCount];
+    // Get the file from the request
+    $file = $request['filePath'][$fileCount];
 
 
-	    // store to public/storage/compreDump
-	  	$path = $file->store('compreDump', 's3');
-			
+    // store to public/storage/compreDump
+  	$path = $file->store('compreDump', 's3');
+		
 		$moduleFields['filePath'] = $path;		
 		if(empty($request['title'][$fileCount]))
 		{
@@ -136,8 +149,9 @@ class DndController extends Controller
 		{
 			$moduleFields['title'] = $request['title'][$fileCount];			
 		}
+
 		$moduleFields['author'] = $request['author'][$fileCount];
-		$moduleFields['course_id'] = $request['course_id'][$fileCount];
+		$moduleFields['course_id'] = $courseId;
 		$moduleFields['pages'] = $request['pages'][$fileCount];
 		$moduleFields['tags'] = $request['tags'][$fileCount];
 		$moduleFields['description'] = $request['description'][$fileCount];
