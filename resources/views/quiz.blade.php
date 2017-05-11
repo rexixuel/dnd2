@@ -1,7 +1,7 @@
 @extends('layouts.app',['title' => 'Quiz'])
 
 @section ('content')
-		//@include('modules.courseTabs', ['link' => 'quiz'])
+		
 		<div class="container-fluid">
 			@if (session('message'))
             	<div class="alert alert-success">
