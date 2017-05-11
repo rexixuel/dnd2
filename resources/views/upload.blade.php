@@ -26,9 +26,9 @@
 						</div>
 					  </div>
 					</div>
-					<div class="row panelGrid">
-					  <div class="col-md-4 fileMeta">
-					    <div class="panel panel-info">
+<!-- 					<div class="row panelGrid">
+					  <div class="col-md-4"> -->
+					    <div class="panel panel-info fileMeta">
 						  <div class="form form-horizontal">
 							<div class="form-group {{ $errors->has('title.0') ? ' has-error' : '' }} ">					
 								<label class="col-sm-2 control-label" for="title" name="titleLabel[]" id="titleLabel"> Title </label>
@@ -64,7 +64,8 @@
 							</div>																				
 						  </div>
 					    </div>
-					</div>
+					  <!-- </div>
+					</div> -->
 				</div>
    			    <div class="row fileMeta-buttons">
 				  <div class="form-group col-md-12">

@@ -28,8 +28,11 @@ Route::post('download', 'DndController@searchDefault');
 Route::post('download/{id}', 'DndController@search');
 Route::post('delete', 'DndController@delete');
 
-Route::get('quiz', 'QuizController@takeQuiz');
-Route::post('quiz','QuizController@gradeQuiz' );
+Route::get('quiz', 'QuizController@takeQuizDefault');
+Route::get('quiz/{courseId}', 'QuizController@takeQuizTypeDefault');
+Route::get('quiz/{courseId}/{quizType}', 'QuizController@takeQuizType');
+Route::post('quiz/{courseId}','QuizController@gradeQuiz' );
+Route::post('quiz/{courseId}/{quizType}','QuizController@gradeQuiz' );
 
 Route::get('logout', 'Auth\LoginController@logout');
 

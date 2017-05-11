@@ -16,17 +16,40 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
   position: relative;
   margin: 0;  
+  min-height: 100%;  
+  background:url(/background/upd-bg.jpg) no-repeat fixed;
+  background-size:cover;    
+}
+
+.content
+{
+  background-color: #fdfdfd;	
+  padding: 20px;
   min-height: 100%;
-  background-color: #fdfdfd;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.quizPanel
+{
+	margin:20px 0px 20px 0px;
+}
+
+.sidebar
+{
+	border-left: 
+}
+
+.navbar-nav li a
+{
+  color: #cccccc;
+}
+
+.navbar-nav li a:hover
+{
+  color: white;
 }
 
 .nav.navbar
@@ -49,13 +72,31 @@ body {
   height: 100%;
 }
 
+.nav a:hover
+{
+  text-decoration:none;
+}
 .navbar
 {
   margin-bottom: 50px;
 }
-.footer
+
+.nav-stacked li.active a:hover, .nav-stacked li.active a
 {
-  background-color: maroon;
+	background-color:gray;
+  cursor: default;
+}
+
+.nav-stacked li a:hover, .nav-tabs li a:hover
+{
+	background-color:#B0BBBF;
+}
+
+
+.nav-stacked li a
+{
+	background-color:#e7e7e7;
+	
 }
 
 ul.navbar-nav
@@ -66,24 +107,17 @@ ul.navbar-nav
 .navbar-nav li a
 {
   padding: 8px 20px;
-  color: white;
 }
-.nav ul li
+.navbar-nav li
 {
   background-color: #1b2021;  
-  padding:0.5px;
 }
 
-.nav ul li a:hover
+.navbar-nav li a:hover
 {
   background-color: #30343f;
 }
 
-
-.footer
-{
-  color:white;
-}
 
 .pageTitle
 {
@@ -176,12 +210,14 @@ section
  */
 
 .footer {
+  color:white;
+  background-color: maroon; 
   position: absolute;
-  font: 9px;
-  right: 0;
+  font: 9px;  
+  right: 15px;
   bottom: 0;
-  left: 0;
+  left: 15px;
   height:60px;
   padding: 10px 1px 10px 1px; 
-  /*text-align: center;*/
+ 
 }

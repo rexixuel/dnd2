@@ -18,6 +18,7 @@
         <title> {{$title}} </title>
     </head>
     <body class="container">
+      <div class="content">
       <nav class="nav navbar">
         <div class="container-fluid">
           <ul class="nav navbar-nav navbar-right">
@@ -44,8 +45,6 @@
       </nav>
       <section>
         @yield('content')       
-      </section>
-
       <footer class="footer">
         <div class="col-xs-4">
            <small> <p class="text-left"> Copyright <i class="glyphicon glyphicon-copyright-mark"> </i>  MTM </p>
@@ -58,6 +57,8 @@
         </div>          
       
       </footer>
+      </section>
 
+      </div>
     </body>
 </html>
