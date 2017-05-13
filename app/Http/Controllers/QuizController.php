@@ -1,10 +1,13 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 use Fcosrno\Exam\Exam;
+
+use App\HtmlResultsGenerator;
 
 use App\Course;
 
@@ -194,7 +197,11 @@ class QuizController extends Controller
 			$myAnswers = array_values($requestSpliced);
 			$percent = $exam->grade($myAnswers); // returns percent
 
-			$quizForm = $exam->generateHtmlResults();			
+			$questions = $exam->getQuestionsArray();
+
+			$quizForm = new HtmlResultsGenerator($questions);
+
+			// $quizForm = $exam->generateHtmlResults();			
 
 			return back()->with('message', '<div class="alert alert-success"> You got a grade of '.$percent."</div> ".$quizForm);
 		}catch (Exception $e) {
