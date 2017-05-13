@@ -56,23 +56,22 @@ class DndController extends Controller
   {
     $zipper = new Zipper();
     $module = new Module();
-    // $modules = $module->where('course_id','=',$courseId)->get();
-    $modules = $module->find(2);
+    $modules = $module->where('course_id','=',$courseId)->get();    
 
-    $fileArray = [$modules->filePath];
+    $fileArray = [];
 
-    // foreach($modules as $file)
-    // {
-    //   Storage::cloud()->setVisibility($file->filePath,'public');    
-    //   $fileArray = array_prepend($fileArray,Storage::cloud()->url($file->filePath));
-    // }
+    foreach($modules as $file)
+    {      
+      $path = storage_path("app/{$file->filePath}");
+      $fileArray = array_prepend($fileArray,$path);
+    }
 
     // $zipFile = $zipper->zip('test.zip')->folder('test')->add($fileArray);
-    $zipFile = $zipper->make(storage_path('test.zip'))->add($fileArray)->close();
+    $zipFile = $zipper->make('test.zip')->add($fileArray)->close();
 
     // return response()->download(storage_path('test.zip'));
 
-    dd($fileArray);
+    // dd($fileArray);
 
   }
 
@@ -88,10 +87,10 @@ class DndController extends Controller
   	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
   	$path = Storage::cloud()->get($module->filePath);
   	
-  	// return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
+  	return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, ['Content-Type' => $mimeType]);
 
-  	return response($path,200, ['Content-Type' => $mimeType, 
-				    'Content-Disposition' => 'attachment; filename="'.$module->title.'.'.$extension.'"']);
+  	// return response($path,200, ['Content-Type' => $mimeType, 
+			// 	    'Content-Disposition' => 'attachment; filename="'.$module->title.'.'.$extension.'"']);
   }
 
   public function search(Request $request, $id)
