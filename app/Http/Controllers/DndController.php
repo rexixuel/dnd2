@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\File;
 
 use App\Module;
 use App\Course;
+use Chumper\Zipper\Zipper;
+
 use Auth;
 
 class DndController extends Controller
@@ -22,13 +24,13 @@ class DndController extends Controller
   public function delete (Request $request)
   {
   	$module = new Module();
-	$module = $module->find($request->deleteId);
+	  $module = $module->find($request->deleteId);
 	  
-	Storage::cloud()->delete($module->filePath);  
+	  Storage::cloud()->delete($module->filePath);  
 	
-	$title = $module->title;
+	  $title = $module->title;
 	  
-	$module->delete();
+	  $module->delete();
 	  
   	return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul>'.$title."</ul>");
   }  	
@@ -50,6 +52,30 @@ class DndController extends Controller
   	return view('download', compact('modules', 'courses','courseId'));
   }  
 
+  public function downloadAll (Request $request, $courseId)
+  {
+    $zipper = new Zipper();
+    $module = new Module();
+    // $modules = $module->where('course_id','=',$courseId)->get();
+    $modules = $module->find(4);
+
+    $fileArray = ['https://s3-ap-southeast-1.amazonaws.com/dnd.comprepository/compreDump/quno2kcDFXhYU88ZTwYYd2WNADHUKaKDACcqFucq.docx'];
+
+    // foreach($modules as $file)
+    // {
+    //   Storage::cloud()->setVisibility($file->filePath,'public');    
+    //   $fileArray = array_prepend($fileArray,Storage::cloud()->url($file->filePath));
+    // }
+
+    // $zipFile = $zipper->zip('test.zip')->folder('test')->add($fileArray);
+    $zipFile = $zipper->make(storage_path('test.zip'))->add($fileArray)->close();
+
+    // return response()->download(storage_path('test.zip'));
+
+    dd($fileArray);
+
+  }
+
   public function getFile($id)
   {
   	$module = new Module();
@@ -57,7 +83,7 @@ class DndController extends Controller
 	
 	// for production. Storage does not support extraction of extension name natively
   	$extension = explode('.', $module->filePath);
-	$extension = end($extension);
+	  $extension = end($extension);
 	
   	$mimeType = Storage::disk('s3')->mimeType($module->filePath);
   	$path = Storage::cloud()->get($module->filePath);
@@ -142,7 +168,8 @@ class DndController extends Controller
 
 
       // store to public/storage/compreDump
-    	$path = $file->store('compreDump', 's3');
+      $path = $file->store('compreDump');
+    	// $path = $file->store('compreDump', 's3','public');
   		
   		$moduleFields['filePath'] = $path;		
   		if(empty($request['title'][$fileCount]))

@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "69b36e1d83c64131a2de520f46d04296",
-    "content-hash": "29d48a9decb69b6f7b10ed94a18f925b",
+    "hash": "0ba873ac13f2802d5a90494af3ffd03d",
+    "content-hash": "7cf208a309512ecc6e753f7981d8a533",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.27.0",
+            "version": "3.27.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "23fd97c5bc4aaa923b994f8876c86574ed84f27d"
+                "reference": "eb10e43cccf8e868f9622ab8ce2beb9fb756b5a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/23fd97c5bc4aaa923b994f8876c86574ed84f27d",
-                "reference": "23fd97c5bc4aaa923b994f8876c86574ed84f27d",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eb10e43cccf8e868f9622ab8ce2beb9fb756b5a8",
+                "reference": "eb10e43cccf8e868f9622ab8ce2beb9fb756b5a8",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,57 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-05-04 22:43:46"
+            "time": "2017-05-11 21:23:43"
+        },
+        {
+            "name": "chumper/zipper",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chumper/Zipper.git",
+                "reference": "210c17a1596a5ec462b5f9fd9866853f3240b25a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chumper/Zipper/zipball/210c17a1596a5ec462b5f9fd9866853f3240b25a",
+                "reference": "210c17a1596a5ec462b5f9fd9866853f3240b25a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "^5.0",
+                "illuminate/support": "^5.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chumper\\Zipper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Plaschke",
+                    "email": "github@nilsplaschke.de",
+                    "homepage": "http://nilsplaschke.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is a little neat helper for the ZipArchive methods with handy functions",
+            "homepage": "http://github.com/Chumper/zipper",
+            "keywords": [
+                "archive",
+                "laravel",
+                "zip"
+            ],
+            "time": "2017-02-01 05:26:05"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -540,16 +590,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.22",
+            "version": "v5.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d"
+                "reference": "ad82327705658dbf5f0ce72805caa950dfbe150d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
-                "reference": "fc5c7a18644f231bcb8d02f4ec2f3a2517f5015d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ad82327705658dbf5f0ce72805caa950dfbe150d",
+                "reference": "ad82327705658dbf5f0ce72805caa950dfbe150d",
                 "shasum": ""
             },
             "require": {
@@ -665,7 +715,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-05-08 21:45:45"
+            "time": "2017-05-11 20:10:35"
         },
         {
             "name": "laravel/tinker",
@@ -1283,16 +1333,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.3",
+            "version": "v0.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e"
+                "reference": "17cf432bb80d9198df239b80d00a29155bd74d82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
-                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/17cf432bb80d9198df239b80d00a29155bd74d82",
+                "reference": "17cf432bb80d9198df239b80d00a29155bd74d82",
                 "shasum": ""
             },
             "require": {
@@ -1352,7 +1402,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-03-19 21:40:44"
+            "time": "2017-05-12 15:41:55"
         },
         {
             "name": "ramsey/uuid",
@@ -1438,16 +1488,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.7",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4"
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
-                "reference": "56db4ed32a6d5c9824c3ecc1d2e538f663f47eb4",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9a06dc570a0367850280eefd3f1dc2da45aef517",
+                "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
                 "shasum": ""
             },
             "require": {
@@ -1488,7 +1538,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-04-20 17:32:18"
+            "time": "2017-05-01 15:54:03"
         },
         {
             "name": "symfony/console",

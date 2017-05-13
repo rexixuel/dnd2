@@ -32,7 +32,7 @@
 				<!-- <h3 class="text-center"> <small> Click the link to download module </small> </h3> -->
 			</div>
 			<div class="searchForm">
-				<form class="form form-inline" method="POST" action="download" role="form">
+				<form class="form form-inline" method="POST" action="{{ asset('download/'.$courseId)}}" role="form">
 					{{ csrf_field() }}
 					<div class="input-group col-md-3">
 						<div class="input-group-addon"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></div>
@@ -41,7 +41,10 @@
 					</div>
 					<div class="input-group col-md-6">					
 						<button type="submit" name="search" id="search" class="btn btn-default"> Search </button>
-					</div>					
+					</div>
+					<div class="input-group col-md-3">
+						<a href="{{ asset('downloadAll/'.$courseId) }}" role="button" name="downloadAll" id="downloadAll" class="btn btn-link"> Download All </a>
+					</div>										
 				</form>				
 			</div>
 			@if (session('message'))
@@ -66,7 +69,7 @@
 						<td> {{ $module->author }} </td>
 						<td> {{ $module->course->title }} </td>
 						<td> {{ $module->created_at }} </td>
-						<td> <a href="{{ asset('grab/'.$module->id)}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
+						<td> <a href="{{ asset('downloadSingle/'.$module->id)}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
 							<td> <button class="btn btn-danger delete" type="button" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
 								data-id="{{$module->id}}"> 							        
