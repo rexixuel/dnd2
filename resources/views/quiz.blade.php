@@ -1,6 +1,7 @@
 @extends('layouts.app',['title' => 'Quiz'])
 
 @section ('content')
+		
 		<div class="container-fluid">
             @include('modules.courseTabs', ['link' => 'quiz'])
 			<aside class="nav sidebar col-md-3">
