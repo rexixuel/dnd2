@@ -114,14 +114,18 @@ class DndController extends Controller
     return view('upload', compact('courses', 'courseId'));
   }
 
+  public function storeDefault (Request $request)
+  {
+    return store($request, 1);
+  }
+
   public function store (Request $request, $courseId)
   {      
-  	$fileCount = 0;
+  	$fileCount = 0;    
 
 	  do{
   		$this->validate($request, [
-  	        'filePath.'.$fileCount => 'required',	        
-  	        'author.'.$fileCount => 'required|max:255',
+  	        'filePath.'.$fileCount => 'required',  	        
   	    ]);
 
   		$fileCount++;
@@ -133,38 +137,53 @@ class DndController extends Controller
     
   	do{
 
-    // Get the file from the request
-    $file = $request['filePath'][$fileCount];
+      // Get the file from the request
+      $file = $request['filePath'][$fileCount];
 
 
-    // store to public/storage/compreDump
-  	$path = $file->store('compreDump', 's3');
-		
-		$moduleFields['filePath'] = $path;		
-		if(empty($request['title'][$fileCount]))
-		{
-			$moduleFields['title'] = $request['filePath'][$fileCount]->getClientOriginalName();			
-		}
-		else
-		{
-			$moduleFields['title'] = $request['title'][$fileCount];			
-		}
+      // store to public/storage/compreDump
+    	$path = $file->store('compreDump', 's3');
+  		
+  		$moduleFields['filePath'] = $path;		
+  		if(empty($request['title'][$fileCount]))
+  		{
+  			$moduleFields['title'] = $request['filePath'][$fileCount]->getClientOriginalName();			
+  		}
+  		else
+  		{
+  			$moduleFields['title'] = $request['title'][$fileCount];			
+  		}
 
-		$moduleFields['author'] = $request['author'][$fileCount];
-		$moduleFields['course_id'] = $courseId;
-		$moduleFields['pages'] = $request['pages'][$fileCount];
-		$moduleFields['tags'] = $request['tags'][$fileCount];
-		$moduleFields['description'] = $request['description'][$fileCount];
+      if(!empty($request['author'][$fileCount]))
+      {
+        $moduleFields['author'] = $request['author'][$fileCount];
+      }
 
-		$module = new Module();
+      if(!empty($request['pages'][$fileCount]))
+      {
+        $moduleFields['pages'] = $request['pages'][$fileCount];
+      }
 
-		// Get storage path and store to database
+      if(!empty($request['tags'][$fileCount]))
+      {
+        $moduleFields['tags'] = $request['tags'][$fileCount];        
+      }      
 
-		$module = $module->create($moduleFields);
-  		$fileList = $fileList."<li>".$request['filePath'][$fileCount]->getClientOriginalName()."</li>";
+      if(!empty($request['description'][$fileCount]))
+      {
+        $moduleFields['description'] = $request['description'][$fileCount];
+      }
 
-		$fileCount++;
-  	
+  		$moduleFields['course_id'] = $courseId;
+  		$module = new Module();
+
+  		// Get storage path and store to database
+
+  		$module = $module->create($moduleFields);
+    		$fileList = $fileList."<li>".$request['filePath'][$fileCount]->getClientOriginalName()."</li>";
+
+  		$fileCount++;
+    	
 
   	}while($fileCount < count($request['filePath']));
 

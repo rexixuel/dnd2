@@ -3,6 +3,59 @@
 custom scripts for team dimaunahan project
 
 **/
+
+$(document).on('click', '.fileLink', function (event){
+		$fileMetadataIndex = $(this).data('index');				
+
+		$fileMetadata = '<div class="form"> <div class="form-horizontal fileMetaFields fileMetaFields' + $fileMetadataIndex + '"> <div class="form-group">'
+                                    +'<label class="col-sm-4 control-label" for="title" name="titleLabel[]" id="titleLabel"> Title </label>' 
+                                    +'<div class="col-sm-8">' 
+                                        +'<input class="form-control" type="text" name="title['+$fileMetadataIndex+']" id="title" autocomplete value="'
+                                         + $('.boxFile')[0].files[$fileMetadataIndex].name +' "/>'
+                                    +'</div>' 
+                                +'</div>' 
+                                +'<div class="form-group">' 
+                                    +'<label class="col-sm-4 control-label" for="author" name="authorLabel[]" id="authorLabel"> Author </label>'
+                                    +'<div class="col-sm-8">'
+                                        +'<input class="form-control" type="text" name="author['+$fileMetadataIndex+']" id="author" autocomplete />'
+                                    +'</div>'
+                                +'</div>'                  
+                                +'<div class="form-group">' 
+                                    +'<label class="col-sm-4 control-label" for="pages" name="pagesLabel[]" id="pagesLabel"> # of Pages </label>' 
+                                    +'<div class="col-sm-8">' 
+                                        +'<input class="form-control" type="number" name="pages['+$fileMetadataIndex+']" id="pages" min="1" value="1" />' 
+                                    +'</div>' 
+                                +'</div>'                                                           
+
+                                +'<div class="form-group">' 
+                                    +'<label class="col-sm-4 control-label" for="tags" name="tagsLabel[]" id="tagsLabel"> Tags </label>' 
+                                    +'<div class="col-sm-8">' 
+                                        +'<input class="form-control" type="text" name="tags['+$fileMetadataIndex+']" id="tags" />' 
+                                    +'</div>' 
+                                +'</div>'
+                                +'<div class="form-group">' 
+                                    +'<label class="col-sm-4 control-label" for="description" name="descriptionLabel" id="descriptionLabel"> Description </label>'
+                                    +'<div class="col-sm-8">' 
+                                        +'<textarea name="description['+$fileMetadataIndex+']" id="description" placeholder="Enter brief desciption for module">'+'</textarea>' 
+                                    +'</div>' 
+                                +'</div>'
+                             +'</div> </div>';
+		                // + $('.boxFile')[0].files[$fileMetadataIndex].name + '"/></div></div></div>';
+
+		
+		$('.fileMetaFields').hide();
+		if($("div").hasClass('fileMetaFields' + $fileMetadataIndex))
+		{
+			$('.fileMetaFields' + $fileMetadataIndex).show();
+		}
+		else
+		{
+			$('.fileMetadata').append($fileMetadata);				
+			$('.fileMetaFields' + $fileMetadataIndex).show();
+		}
+		
+		
+	});
 $(document).ready(function(){
 	
 	$('#deleteWarning').on('show.bs.modal', function (event) {
@@ -24,6 +77,7 @@ $(document).ready(function(){
 	}
 
 	$('.boxFile').change(function (){		
+
 		$('#filePathLabel').text(this.files.length + ' file(s) selected' );
 		
 		$('.fileMeta').hide();
@@ -39,23 +93,25 @@ $(document).ready(function(){
 		
 		$('.fileMeta').show();
 		$('.fileMeta-buttons').show();
+		$('.fileMeta').find('#fileTitle').text(this.files[0].name);
 
-		$x++;
+
+		$fileMeta.find('.thumbnail').find('.fileLink').data("index", $x);		
+        $x++;
 
 		if($numOfFiles > 1)
 		{			
 			do{								
-				$fileMeta.clone().appendTo('.fileMeta').addClass('clone').prepend('<div class="panel-heading fileTitle"><strong>' + this.files[$x].name + '</strong></div>');
-				// $fileMeta.clone().appendTo('.panelGrid').addClass('clone').prepend('<div class="panel-heading fileTitle"><strong>' + this.files[$x].name + '</strong></div>');
 				
-				$fileMetaClone = $('.fileMeta.clone');				
+				$fileMeta.clone().appendTo('.thumbnailGrid').addClass('clone clone' + $x).find('.fileLink').data("index", $x).find('#fileTitle').text(this.files[$x].name)			
+				$fileMetaClone = $('.fileMeta.clone');
 				
 				$x++;				
 			}while($x < $numOfFiles)
 
 		}
 		// prepend original last to avoid cloning first title multiple times
-		$fileMeta.prepend('<div class="panel-heading fileTitle"><strong>' + this.files[0].name + '</strong></div>');
+		// $('.fileName').text(this.files[0].name);
 	});
 });
 

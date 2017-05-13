@@ -49,10 +49,8 @@
 					{{ csrf_field() }}
 					<div class="panel-body">
 						<div class="input input-group">
-						@if (session('message'))
-			            	
-			                	{!! session('message') !!}
-			                
+						@if (session('message'))			            	
+			                {!! session('message') !!}			                
 			            @else
 							{!! $quizForm !!}				
 			            @endif						

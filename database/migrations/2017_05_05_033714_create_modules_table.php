@@ -17,9 +17,10 @@ class CreateModulesTable extends Migration
             $table->increments('id');
             $table->string('filePath');    
             $table->string('title');
-            $table->string('author');
-            $table->integer('pages')->unsigned();
-            $table->text('description')->null();
+            $table->string('author')->nullable();
+            $table->integer('pages')->unsigned()->default(1);
+            $table->string('tags')->nullable();
+            $table->text('description')->nullable();
             $table->date('updated_at');
             $table->date('created_at');
         });
