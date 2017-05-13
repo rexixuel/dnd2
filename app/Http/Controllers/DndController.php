@@ -57,9 +57,9 @@ class DndController extends Controller
     $zipper = new Zipper();
     $module = new Module();
     // $modules = $module->where('course_id','=',$courseId)->get();
-    $modules = $module->find(4);
+    $modules = $module->find(2);
 
-    $fileArray = ['https://s3-ap-southeast-1.amazonaws.com/dnd.comprepository/compreDump/quno2kcDFXhYU88ZTwYYd2WNADHUKaKDACcqFucq.docx'];
+    $fileArray = [$modules->filePath];
 
     // foreach($modules as $file)
     // {
