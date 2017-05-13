@@ -47,7 +47,7 @@
 			   			    <div class="panel-footer fileMeta-buttons">
 							  <div class="btn-group">
 								  <button type="submit" name="upload" id="upload" class="btn btn-primary"> Save </button>  
-					  			  <button id="cancel" class="btn btn-link" href="upload"> Cancel </button>
+					  			  <a id="cancel" class="btn btn-link" href="{{ asset('upload/'.$courseId) }}"> Cancel </a>
 				  			  </div>
 				  			</div>		  	  		  	    
 		  	              </div>
