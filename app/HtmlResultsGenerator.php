@@ -11,11 +11,12 @@
 namespace App;
 class HtmlResultsGenerator
 {
-	protected $html,$questions,$questionKey;
-	function __construct($questionsArray)
+	protected $html,$questions,$questionKey,$answers;
+	function __construct($questionsArray,$answersArray)
 	{
 		$this->html = null;
 		$this->questions = $questionsArray;
+		$this->answers = $answersArray;
 	}
 	public function __toString()
 	{
@@ -30,9 +31,18 @@ class HtmlResultsGenerator
 			else $name = 'answer'.($key+1);
 			// Display question
 			$this->html .= '<br /> <p> <strong>'.$q['stem'].'</strong></p>';
+			if($this->answers[$key] == $q['answer'])				
+			{
+				$this->html .= '<strong> You Answered: </strong> <p class="alert alert-success">'.$this->answers[$key].'</p>';
+			}
+			else
+			{
+				$this->html .= '<strong> You Answered: </strong> <p class="alert alert-danger">'.$this->answers[$key].'</p>';
+			}
+
 			$this->html .= '<strong> Correct Answer: </strong> <p class="alert alert-success">'.$q['answer'].'</p>';
 		}
-		// Return HTML string		
+		// Return HTML string
 		return $this->html;
 	}
 }

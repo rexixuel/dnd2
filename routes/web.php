@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+// static pages
+Route::get('about', 'StaticController@about');
+Route::get('contact', 'StaticController@contact');
+
 
 Route::get('upload', 'DndController@uploadDefault');
 Route::get('upload/{courseId}', 'DndController@upload');
@@ -22,11 +26,12 @@ Route::post('upload/{courseId}','DndController@store' );
 
 Route::get('download', 'DndController@downloadDefault');
 Route::get('download/{courseId}', 'DndController@download');
+Route::get('download/{courseId}/{sortField}', 'DndController@sort');
 Route::get('downloadSingle/{moduleId}', 'DndController@getFile');
 Route::post('download', 'DndController@searchDefault');
-Route::post('download/{courseId}', 'DndController@search');
+Route::post('download/{courseId}', 'DndController@downloadAction');
 Route::get('downloadAll/{courseId}', 'DndController@downloadAll');
-Route::post('delete', 'DndController@delete');
+Route::post('delete', 'DndController@deleteAction');
 
 Route::get('quiz', 'QuizController@takeQuizDefault');
 Route::get('quiz/{courseId}', 'QuizController@takeQuizTypeDefault');

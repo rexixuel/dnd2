@@ -58,9 +58,11 @@
 						</div>
 					</div>
 					<div class="panel-footer">
+						@if ($quizType != "summary" && $quizType != "application")
 						<div class="btn-group">
 							<button type="submit" class="btn btn-primary" name="submitAnswer" id="submitAnswer" value="Submit">Submit</button>
 						</div>
+						@endif
 					</div>				
 				</form>
 			   </div>

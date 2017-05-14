@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\ValidStudent;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -45,12 +47,20 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function messages()
+    {
+        return [
+            'student_number.exists' => 'Student is not enrolled in MTM',
+        ];
+    }
+
     protected function validator(array $data)
     {        
         return Validator::make($data, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'student_number' => 'required|string|max:255|unique:users',
+            'student_number' => 'required|string|max:255|unique:users|exists:valid_students',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -64,11 +74,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $validStudent = new ValidStudent;
+        $role = $validStudent->where('student_number','=',$data['student_number'])->get();
+        $role = $role[0]->role;
+        
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'student_number' => $data['student_number'],
             'email' => $data['email'],
+            'role' => $role,
             'password' => bcrypt($data['password']),
         ]);
     }

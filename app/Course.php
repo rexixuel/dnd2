@@ -15,4 +15,14 @@ class Course extends Model
     {
         return $this->hasMany('App\Module','course_id', 'id');
     }
+
+    public function questions()
+    {
+        return $this->hasMany('App\Question','course_id', 'id');
+    }    
+
+    public function tofquestions()
+    {
+        return $this->hasMany('App\Tof','course_id', 'id');
+    }        
 }

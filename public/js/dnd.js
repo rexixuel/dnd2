@@ -57,16 +57,31 @@ $(document).on('click', '.fileLink', function (event){
 		
 	});
 $(document).ready(function(){
-	
+	$("#studentNumber").mask("9999-99999", {placeholder:"0"});		
 	$('#deleteWarning').on('show.bs.modal', function (event) {
 	  var button = $(event.relatedTarget); // Button that triggered the modal
 	  var title = button.data('title'); // Extract title from data-* attributes
-	  var id = button.data('id'); // Extract id from data-* attributes
-	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	  
 	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 	  var modal = $(this);
+	  if(button.val() == "deleteSelected")
+	  {
+	  	var id = $('.moduleChecked:checkbox:checked').val();
+		var selectedIds = [];
+		$('.moduleChecked:checkbox:checked').each(function () {		
+		  	selectedIds.push($(this).val())
+		});
+	  	modal.find('#deleteId').val(selectedIds);
+	  }
+	  else
+	  {
+	     var id = button.data('id'); // Extract id from data-* attributes
+	     modal.find('#deleteId').val(id);	  	
+	  }
+	  
+
+	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 	  modal.find('#deleteWarningMessage').text(title + ' shall be deleted from server. Are you sure you want to continue?' );
-	  modal.find('#deleteId').val(id);
 	})
 	
 	
