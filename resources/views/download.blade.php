@@ -96,11 +96,11 @@
 					</tbody>
 				@endforeach
 				</table>
-				<div class="btn btn-block">
 				@if (!empty($modules->toArray()))
+				<div class="btn btn-block">
 					{{$modules->links()}}
-				@endif
 				</div>					
+				@endif
 			  </div>
 			</form>
 	    </div>		
