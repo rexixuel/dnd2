@@ -1,4 +1,5 @@
-		<nav class="">
+	<div class="row">
+		<nav class="col-md-12">
 			<ul class="nav nav-tabs">
 			  @foreach ($courses as $course)
 			  	@if ($course->id == $courseId)
@@ -9,3 +10,4 @@
 			  @endforeach
 			</ul>
 		</nav>
+	</div>

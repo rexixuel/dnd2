@@ -45,6 +45,11 @@
             </div>
           </div>
         </nav>
+        <div class="row">
+<!--           <div class="col-md-2 col-md-offset-10">
+            <h4 class="text-center"> Hi {{ Auth::user()->first_name }}! </h4>
+          </div>
+ -->        </div>
         <section>
           @yield('content')       
           <footer class="footer">
