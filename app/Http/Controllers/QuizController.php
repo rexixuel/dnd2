@@ -27,7 +27,7 @@ class QuizController extends Controller
 
 		$questions = $course->find($courseId)->questions;
 		
-		if(empty(count($questions)))
+		if(empty(count($questions)) && $course->title != "TM 204")
 		{
 			return abort(404);
 		}		
