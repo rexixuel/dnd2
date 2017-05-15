@@ -12,9 +12,9 @@
 					</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row center-block">
 
-				<div class="col-md-3">
+				<div class="col-md-2 col-md-offset-1">
 					<div class="thumbnail">
 						<img src="http://placehold.it/242x200">
 						<div class="caption text-center author">
@@ -23,17 +23,17 @@
 					</div>
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="thumbnail">
 						<img src="http://placehold.it/242x200">
 						<div class="caption text-center author">
-							<strong> Anna May Descutido </strong>
+							<strong> Anna May M. Descutido </strong>
 						</div>
 					</div>
 				</div>
 
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="thumbnail">
 						<img src="http://placehold.it/242x200">
 						<div class="caption text-center author">
@@ -42,7 +42,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="thumbnail">
 						<img src="http://placehold.it/242x200">
 						<div class="caption text-center author">
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-2">
 					<div class="thumbnail">
 						<img src="http://placehold.it/242x200">
 						<div class="caption text-center author">
@@ -83,7 +83,23 @@
 						<small> <em> Source: http://www.tmc.upd.edu.ph/?page_id=33 </em> </small>
 					</p>
 				</div>				
-			</article>			
+			</article>
+			<article class="row team">
+				<div class="col-md-2 avatar">
+					<img src="{{ asset('img/Faculty/ProfGlenImbang.jpg') }}" />
+				</div>
+				<div class="col-md-9">
+					<h3> <strong> <u> Prof. Glen A. Imbang </u> </strong> </h3>
+					<p class="text-justify avatarText flavorText">
+						Prof. Imbang holds double Masters degrees in MS Biology (U.P. Diliman) and Master of Engineering and Technology Management (University of Queensland), and is also an Asst. Professor at the UP Integrated School. Prof. Imbang has excelled himself in extension, research and research writing, where he has the experience and competence to carry out teaching, research, and consultancy in most areas of Technology Management, particularly as an expert in strategic technology planning and technology forecasting.
+					</p>
+					<p class="text-justify avatarText flavorText">
+						In one of his more outstanding extension achievements, he became the first project leader in the entire country to successfully conduct an actual Technology Foresight project for a major Philippine industry (electronics), thus reaping laurels for UP Diliman from the Department of Science and Technology and the APEC Center for Technology Foresight in Thailand.
+						<br /> <br />
+						<small> <em> Source: http://www.tmc.upd.edu.ph/?page_id=33 </em> </small>
+					</p>
+				</div>				
+			</article>												
 			<article class="row team">
 				<div class="col-md-2 avatar">
 					<img src="{{ asset('img/Faculty/DrRogerPosadas.png') }}" />
@@ -102,23 +118,7 @@
 						<small> <em> Source: https://ph.linkedin.com/in/roger-posadas-2314b7a </em> </small>
 					</p>
 				</div>				
-			</article>						
-			<article class="row team">
-				<div class="col-md-2 avatar">
-					<img src="{{ asset('img/Faculty/ProfGlenImbang.jpg') }}" />
-				</div>
-				<div class="col-md-9">
-					<h3> <strong> <u> Prof. Glen A. Imbang </u> </strong> </h3>
-					<p class="text-justify avatarText flavorText">
-						Prof. Imbang holds double Masters degrees in MS Biology (U.P. Diliman) and Master of Engineering and Technology Management (University of Queensland), and is also an Asst. Professor at the UP Integrated School. Prof. Imbang has excelled himself in extension, research and research writing, where he has the experience and competence to carry out teaching, research, and consultancy in most areas of Technology Management, particularly as an expert in strategic technology planning and technology forecasting.
-					</p>
-					<p class="text-justify avatarText flavorText">
-						In one of his more outstanding extension achievements, he became the first project leader in the entire country to successfully conduct an actual Technology Foresight project for a major Philippine industry (electronics), thus reaping laurels for UP Diliman from the Department of Science and Technology and the APEC Center for Technology Foresight in Thailand.
-						<br /> <br />
-						<small> <em> Source: http://www.tmc.upd.edu.ph/?page_id=33 </em> </small>
-					</p>
-				</div>				
-			</article>						
+			</article>
 
 		</div>
 @stop

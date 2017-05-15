@@ -15,7 +15,6 @@
 			      <img src="http://3.bp.blogspot.com/-u5mIAaQBSYY/UX4pvqNOSHI/AAAAAAAAB5Q/heE-IKeQYlc/s1600/IMG_1263.jpg" alt="Up Oblation">
 			      <div class="carousel-caption">
 			        <h2> COMPASS: MTM Online Comprehensive Examination Learning Tool </h2>
-						<small> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </small>
 			      </div>
 			    </div>
 			    <div class="item"> 
@@ -23,7 +22,6 @@
 			      <div class="carouselOpacity">
 			        <div class="carousel-caption">
 				        <h2> COMPASS: MTM Online Comprehensive Examination Learning Tool </h2>
-						<small> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </small>
 			        </div>
 			      </div>
 			    </div>
@@ -32,7 +30,6 @@
 			      <div class="carouselOpacity">
 			        <div class="carousel-caption">
 			        	<h2> COMPASS: MTM Online Comprehensive Examination Learning Tool </h2>
-						<small> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </small>
 			        </div>
 			      </div>
 			    </div>	
@@ -41,7 +38,6 @@
 			      <div class="carouselOpacity">
 			        <div class="carousel-caption">
 			        	<h2> COMPASS: MTM Online Comprehensive Examination Learning Tool </h2>
-						<small> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </small>
 			        </div>
 			      </div>
 			    </div>	
@@ -50,7 +46,6 @@
 			      <div class="carouselOpacity">
 			        <div class="carousel-caption">
 			        	<h2> COMPASS: MTM Online Comprehensive Examination Learning Tool </h2>
-						<small> Bacon ipsum dolor amet spare ribs pastrami filet mignon cupim pancetta. Strip steak ribeye kielbasa leberkas turkey  </small>
 			        </div>
 			      </div>
 			    </div>			    

@@ -27,6 +27,10 @@ class QuizController extends Controller
 
 		$questions = $course->find($courseId)->questions;
 		
+		if(empty(count($questions)))
+		{
+			return abort(404);
+		}		
 
 		foreach ($questions as $question) {
 			$answerArray = [];
