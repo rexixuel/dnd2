@@ -60,26 +60,26 @@ class QuizController extends Controller
 			     ->setChoices("Research as one of the central missions of a modern university","Research as the supporting generator of new knowledge","Research as complementary to, as well as supportive of, teaching", "Research as a means of enhancing a university’s academic reputation and ranking")
 			     ->setAnswer("Research as the supporting generator of new knowledge");
 			// Question 2
-			$exam->ask('2. The following are the strategic purposes of industrial R&D except for:')->setChoices('To defend, support, expand existing business','To drive new business','To broaden and deepen technological capability','To explore potential business investors')->setAnswer('To explore potential business investors');
+			$exam->ask('<strong> 2. The following are the strategic purposes of industrial R&D except for: </strong>')->setChoices('To defend, support, expand existing business','To drive new business','To broaden and deepen technological capability','To explore potential business investors')->setAnswer('To explore potential business investors');
 			// Question 3
-			$exam->ask('3. For industrially advanced countries, the main source(s) of funds for R&D activities are:')->setChoices('Business funding','Government funding','Both a and b','None of the above')->setAnswer('Both a and b');
+			$exam->ask('<strong> 3. For industrially advanced countries, the main source(s) of funds for R&D activities are: </strong>')->setChoices('Business funding','Government funding','Both a and b','None of the above')->setAnswer('Both a and b');
 			// Question 4
-			$exam->ask('4. The basic elements needed for an R&D organization are:')->setChoices('People, idea, funds, cultural elements','People, idea, cultural elements, laboratory','People, idea, machinery, laboratory', 'Idea, machinery, laboratory, cultural elements')->setAnswer('People, idea, funds, cultural elements');
+			$exam->ask('<strong> 4. The basic elements needed for an R&D organization are: </strong>')->setChoices('People, idea, funds, cultural elements','People, idea, cultural elements, laboratory','People, idea, machinery, laboratory', 'Idea, machinery, laboratory, cultural elements')->setAnswer('People, idea, funds, cultural elements');
 			// Question 5
-			$exam->ask('5. Characteristic(s) that are more associated with research scientists and engineers (RSE) than with other professionals is:')->setChoices('Orientation Toward Things, Not People','Orientation Toward Employer, Not Profession','Both a and b','None of the above')->setAnswer('Orientation Toward Things, Not People');
+			$exam->ask('<strong> 5. Characteristic(s) that are more associated with research scientists and engineers (RSE) than with other professionals is: </strong>')->setChoices('Orientation Toward Things, Not People','Orientation Toward Employer, Not Profession','Both a and b','None of the above')->setAnswer('Orientation Toward Things, Not People');
 			// Question 6
-			$exam->ask('6. The R&D mission is directly affected by the following factors <em> except </em>:')->setChoices('Technology environment','Technical resources','Competitive environment','Technical resources')->setAnswer('Competitive environment');
+			$exam->ask('<strong> 6. The R&D mission is directly affected by the following factors <em> except </em>: </strong>')->setChoices('Technology environment','Technical resources','Competitive environment','Technical resources')->setAnswer('Competitive environment');
 
 
 			// Question 7
-			$exam->ask('7. Different leadership styles can be used in order to manage research personnel effectively. The leadership style wherein subordinates give the information that the leader needs in order to make the decision and wherein the leader still makes the decision is')->setChoices('Directive','Negotiator','Consultation', 'Participative')->setAnswer('Negotiator');
+			$exam->ask('<strong> 7. Different leadership styles can be used in order to manage research personnel effectively. The leadership style wherein subordinates give the information that the leader needs in order to make the decision and wherein the leader still makes the decision is </strong>')->setChoices('Directive','Negotiator','Consultation', 'Participative')->setAnswer('Negotiator');
 			// Question 8
-			$exam->ask('8. Merton’s social norms for pure research that states that information must be assessed independently of the source’s personal characteristics is')->setChoices('Universalism','Communality','Disinterestedness','Organized skepticism')->setAnswer('Universalism');
+			$exam->ask('<strong> 8. Merton’s social norms for pure research that states that information must be assessed independently of the source’s personal characteristics is </strong>')->setChoices('Universalism','Communality','Disinterestedness','Organized skepticism')->setAnswer('Universalism');
 
 			// Question 9
-			$exam->ask('9. The “Amadeus problem” usually found in inventors and innovators refer to (a)')->setChoices('a. Selfish personality','b. Pride and glory-seeking personalities','c. Difficult and childish personalities', 'd. Introverted personality')->setAnswer('c. Difficult and childish personalities');
+			$exam->ask('<strong> 9. The “Amadeus problem” usually found in inventors and innovators refer to (a) </strong>')->setChoices('Selfish personality','Pride and glory-seeking personalities','Difficult and childish personalities', 'Introverted personality')->setAnswer('Difficult and childish personalities');
 			// Question 10
-			$exam->ask('10. The factors that directly shape and influence corporate strategy are')->setChoices('a. R&D goals, competitive environment, market requirements, and distinctive competencies','b. Corporate goals, technology environment, market requirements, and distinctive competencies','c. Corporate goals, competitive environment, market requirements, and technical resources ','d. Corporate goals, competitive environment, market requirements, and distinctive competencies')->setAnswer('d. Corporate goals, competitive environment, market requirements, and distinctive competencies');			
+			$exam->ask('<strong> 10. The factors that directly shape and influence corporate strategy are </strong>')->setChoices('R&D goals, competitive environment, market requirements, and distinctive competencies','Corporate goals, technology environment, market requirements, and distinctive competencies','Corporate goals, competitive environment, market requirements, and technical resources ','Corporate goals, competitive environment, market requirements, and distinctive competencies')->setAnswer('Corporate goals, competitive environment, market requirements, and distinctive competencies');			
 		}
 		// else
 		// {
