@@ -149,7 +149,27 @@ class QuizController extends Controller
 				// Question 5
 				'Does patenting really benefit a company? When will the company starts to obtain the benefits?'.
 				"</li> </ol>";
-				break;			
+				break;
+			case 5:
+				$questions = 
+				"<ol>".
+				"<li>".			
+				// Question 1
+				"Differentiate a Vertical Technology Transfer and a Horizontal Technology Transfer. Give at least two examples for each technology transfer.". 
+				// Question 2
+				"</li> <li>".
+				"Differentiate a Global Value Chain and a Global Production Network.".
+				"</li> <li>".
+				// Question 3
+				'Differentiate the “old industrial policy” and “new industrial policy”.'.
+				"</li> <li>".
+				// Question 4
+				'What is the recommendation of UNIDO in forming a negotiating team? Why?'.
+				"</li> <li>".
+				// Question 5
+				'Differentiate Internal Technology Acquisition and External Technology Acquisition. Give at least two examples for each technology acquisition.'.
+				"</li> </ol>";
+				break;				
 			case 6:
 				$questions = 
 				"<ol>".
@@ -225,6 +245,20 @@ class QuizController extends Controller
 				'Suppose you’re given a chance to re-brand your company, what will be your form of strategy? How will you address the pros and cons of rebranding?'.
 				"</li> </ol>";
 				break;			
+			case 5:
+				$questions = 
+				"<ol>".
+				"<li>".			
+				// Question 1
+				"Assume that you are a private entity that is donating the new intelligent faculty center building to UP Diliman. Describe briefly and justify the steps you will take in choosing the technology to be used for erecting the building and for fitting it to be an intelligent building. Are they the same steps that UP, a government entity, will take? Why or why not?". 
+				// Question 2
+				"</li> <li>".
+				"Choose one Model of Technological Catch-up and Learning that can serve as a pattern for the Philippines. Support your choice with TM 241 literature and other TM literature. List down the Strengths, Weaknesses, Opportunities and Threats of the Philippines that can serve as a guide for adopting your chosen model.".
+				"</li> <li>".
+				// Question 3
+				'In the present state of the Philippines, describe its industrial policy (old or new). If it is old discuss two examples to show that it is still old. If it is new discuss two examples to show that it is new. Then recommend a characteristic/s of what the industrial policy of the Philippines should be.'.
+				"</li> </ol>";
+				break;							
 			case 6:
 				$questions = 
 				"<ol>".
