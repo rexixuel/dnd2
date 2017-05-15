@@ -80,7 +80,7 @@
 					<p class="text-justify avatarText flavorText">
 						In his nearly 20 years of experience in both the corporate sector and academe, Prof. Cruz has served as a project leader and consultant in various government and private sector technology projects, and has been a valued resource speaker in various technology-related training programs.
 						<br /> <br />
-						<small> <em> Source: http://www.tmc.upd.edu.ph/?page_id=33 </em> </small>
+						<a href="http://www.tmc.upd.edu.ph/?page_id=33"> <small> <em> Source </em> </small> </a>
 					</p>
 				</div>				
 			</article>
@@ -96,7 +96,7 @@
 					<p class="text-justify avatarText flavorText">
 						In one of his more outstanding extension achievements, he became the first project leader in the entire country to successfully conduct an actual Technology Foresight project for a major Philippine industry (electronics), thus reaping laurels for UP Diliman from the Department of Science and Technology and the APEC Center for Technology Foresight in Thailand.
 						<br /> <br />
-						<small> <em> Source: http://www.tmc.upd.edu.ph/?page_id=33 </em> </small>
+						<a href="http://www.tmc.upd.edu.ph/?page_id=33"> <small> <em> Source </em> </small> </a>
 					</p>
 				</div>				
 			</article>												
@@ -115,7 +115,7 @@
 					<p class="text-justify avatarText flavorText">
 						He was the Chancellor of U.P. Diliman from 1993 to 1996, Dean of the U.P. College of Science from 1983 to 1993, and the Chairman of the Department of Physics in the same college from 1980 to 1982.
 						<br /> <br />
-						<small> <em> Source: https://ph.linkedin.com/in/roger-posadas-2314b7a </em> </small>
+						<a href="https://ph.linkedin.com/in/roger-posadas-2314b7a"> <small> <em> Source </em> </small> </a>
 					</p>
 				</div>				
 			</article>
