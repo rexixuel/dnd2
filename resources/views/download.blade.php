@@ -80,7 +80,9 @@
 					<tbody>
 				@foreach ($modules as $module)
 					  <tr>
-						<td class=""> <input type="checkbox" name="modules[]" class="moduleChecked" id="moduleChecked" value="{{ $module->id }}" /> <a href="download/{{$module->id}}" > {{ $module->title }} </a> </td>
+						<td class=""> 
+						<input type="checkbox" name="modules[]" class="moduleChecked" id="moduleChecked" value="{{ $module->id }}" /> 
+						<a href="{{ asset('downloadSingle/'.$module->id)}}" > {{ $module->title }} </a> </td>
 						<td> {{ $module->author }} </td>
 						<td> {{ $module->course->title }} </td>
 						<td> {{ $module->created_at }} </td>
