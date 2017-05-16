@@ -58,6 +58,12 @@ body {
   margin:10px 20px;
 }
 
+.quizBody p
+{
+  font-weight:bold;
+}
+
+
 .author
 {
   font-size: 12px;
