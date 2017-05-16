@@ -25,7 +25,7 @@ class DndController extends Controller
   {
   	$module = new Module();
 	  $module = $module->find($request->deleteId);
-	  
+	  dd($module);
     // Storage::cloud()->delete($module->filePath);  
 	  Storage::disk()->delete($module->filePath);  
 	
