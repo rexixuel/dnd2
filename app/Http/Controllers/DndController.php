@@ -185,6 +185,7 @@ class DndController extends Controller
   public function deleteAction(Request $request)
   {
     $moduleIds = explode(',', $request["deleteId"]);
+	  dd($moduleIds);
     if(count($moduleIds) > 1)
     {
       return $this->deleteSelected($moduleIds);
