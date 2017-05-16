@@ -16,7 +16,7 @@
 
 				<div class="col-md-2 col-md-offset-1">
 					<div class="thumbnail">
-						<img src="http://placehold.it/242x200">
+						<img src="{{ asset('img/GroupMembers/Caindoy.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Erson C. Caindoy </strong>
 						</div>
@@ -25,7 +25,7 @@
 
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="http://placehold.it/242x200">
+						<img src="{{ asset('img/GroupMembers/Descutido.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Anna May M. Descutido </strong>
 						</div>
@@ -35,7 +35,7 @@
 
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="http://placehold.it/242x200">
+						<img src="{{ asset('img/GroupMembers/Dimaunahan.jpg.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Joan Cecile P. Dimaunahan </strong>
 						</div>
@@ -44,7 +44,7 @@
 
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="http://placehold.it/242x200">
+						<img src="{{ asset('img/GroupMembers/Gas-ib.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Winda B. Gas-ib </strong>
 						</div>
@@ -52,7 +52,7 @@
 				</div>
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="http://placehold.it/242x200">
+						<img src="{{ asset('img/GroupMembers/Villanueva-Javier.jpg') }}">
 						<div class="caption text-center author">
 							<strong class=""> Asela Linglingay R. Villanueva-Javier </strong>
 						</div>
