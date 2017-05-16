@@ -35,7 +35,7 @@
 
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="{{ asset('img/GroupMembers/Dimaunahan.jpg.jpg') }}">
+						<img src="{{ asset('img/GroupMembers/Dimaunahan.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Joan Cecile P. Dimaunahan </strong>
 						</div>
