@@ -48,7 +48,7 @@
 					<div class="input-group pull-right">
 						@if(Auth::user()->role < 1)
 							<button type="button" role="button" name="deleteAction" id="deleteAction" class="btn btn-danger btn-sm"
-									data-toggle="modal" data-target="#deleteWarning" data-title="Deleting "
+									data-toggle="modal" data-target="#deleteWarning" data-title="Selected "
 									data-id="deleteSelected" value="deleteSelected">
 								 Delete Selected
 							</button>
