@@ -115,7 +115,7 @@ body {
   height: 100%;
 }
 
-a:hover, .footer div small a:hover { 
+a:hover, .footer div small a:hover, a:active { 
   text-decoration:none;
 }
 .navbar
