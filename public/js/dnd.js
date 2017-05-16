@@ -67,7 +67,9 @@ $(document).ready(function(){
 	  if(button.val() == "deleteSelected")
 	  {
 	  	var id = $('.moduleChecked:checkbox:checked').val();
+		  console.log('title should be stored..');
 		title = title + " " + $('.moduleChecked:checkbox:checked').length + "File(s)";
+		  console.log('if you see this it is gud..');
 		var selectedIds = [];
 		$('.moduleChecked:checkbox:checked').each(function () {		
 		  	selectedIds.push($(this).val())
