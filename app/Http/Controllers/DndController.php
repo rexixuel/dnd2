@@ -82,7 +82,7 @@ class DndController extends Controller
 
   	$module = new Module();
   	$modules = $module->where('course_id','=',$courseId)
-                      ->orderBy('created_at')
+                      ->orderBy('created_at','desc')
                       ->paginate(10);;
 
   	$course = new Course();
