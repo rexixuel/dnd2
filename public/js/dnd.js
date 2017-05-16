@@ -67,6 +67,7 @@ $(document).ready(function(){
 	  if(button.val() == "deleteSelected")
 	  {
 	  	var id = $('.moduleChecked:checkbox:checked').val();
+		title = title + " " + $('.moduleChecked:checkbox:checked').length + "File(s)";
 		var selectedIds = [];
 		$('.moduleChecked:checkbox:checked').each(function () {		
 		  	selectedIds.push($(this).val())
