@@ -25,7 +25,7 @@ class DndController extends Controller
   {
   	$module = new Module();
 	  $module = $module->find($request->deleteId);
-	  dd($module);
+	  
     // Storage::cloud()->delete($module->filePath);  
 	  Storage::disk()->delete($module->filePath);  
 	
@@ -45,7 +45,7 @@ class DndController extends Controller
 
     // commented below is for aws s3 cloud storage    
     // Storage::cloud()->delete($module->filePath);  
-    Storage::disk()->delete($module->filePath);  
+    //Storage::disk()->delete($module->filePath);  
 
     $titles = "";
     foreach ($selectedModules as $selectedModule) {
@@ -185,7 +185,7 @@ class DndController extends Controller
   public function deleteAction(Request $request)
   {
     $moduleIds = explode(',', $request["deleteId"]);
-	  dd($moduleIds);
+	  
     if(count($moduleIds) > 1)
     {
       return $this->deleteSelected($moduleIds);
