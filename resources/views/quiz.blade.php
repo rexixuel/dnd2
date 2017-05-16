@@ -45,7 +45,7 @@
 				</div>
 			  </div>
 			</aside>		
-			<section class="col-lg-9 quizPanel">
+			<section class="col-md-9 quizPanel">
 <!-- 				@if (session('message'))
 	            	<div class="alert alert-success">
 	                	{!! session('message') !!}
