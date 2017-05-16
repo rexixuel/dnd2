@@ -44,7 +44,7 @@
 
 				<div class="col-md-2">
 					<div class="thumbnail">
-						<img src="{{ asset('img/GroupMembers/Gas-ib_vs.jpg') }}">
+						<img src="{{ asset('img/GroupMembers/Gas-ib_v2.jpg') }}">
 						<div class="caption text-center author">
 							<strong> Winda B. Gas-ib </strong>
 						</div>
