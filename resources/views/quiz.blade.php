@@ -4,6 +4,7 @@
 		
 		<div class="container-fluid">
             @include('modules.courseTabs', ['link' => 'quiz'])
+	           <div class="row">
 			<aside class="col-md-3 sidebar">
 			  <div class="panel panel-default quizTypePanel">
 			    <div class="panel-heading quizTypeHeading">
@@ -77,5 +78,6 @@
 				</form>
 			   </div>
 			 </section>
+		</div>
 	    </div>
 @stop
