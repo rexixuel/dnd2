@@ -37,15 +37,16 @@
 					{{ csrf_field() }}
 					<div class="form-group">
 					  <div class="input-group">
-						<div class="input-group-addon"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></div>
 						<input type="text" class="form-control" name="searchField" id="searchField"
 						placeholder="Search by title, author, tags. Leave empty to browse all modules in specified course" />
+						<div class="input-group-btn">
+							<button type="submit" name="downloadAction" id="search" class="btn btn-default" value="search">
+								<i class="glyphicon glyphicon-search" aria-hidden="true"></i>								
+							</button>
+						</div>
 					  </div>
 					</div>
-					<div class="form-group">					
-						<button type="submit" name="downloadAction" id="search" class="btn btn-default" value="search"> Search </button>
-					</div>
-					<div class="input-group pull-right">
+					<div class="form-group pull-right">
 						@if(Auth::user()->role < 1)
 							<button type="button" role="button" name="deleteAction" id="deleteAction" class="btn btn-danger btn-sm"
 									data-toggle="modal" data-target="#deleteWarning" data-title="Selected "
@@ -56,6 +57,7 @@
 						<button type="submit" role="button" name="downloadAction" id="downloadSelected" class="btn btn-default btn-sm" value="downloadSelected"> Download Selected </button>
 						<button type="submit" role="button" name="downloadAction" id="downloadAll" class="btn btn-primary btn-sm" value="downloadAll"> Download All </button>
 					</div>										
+					<div class="clearfix"> </div>
 				</div>
 				
 			  </div>
