@@ -56,8 +56,15 @@ $(document).on('click', '.fileLink', function (event){
 		
 		
 	});
+
 $(document).ready(function(){
-	$("#studentNumber").mask("9999-99999", {placeholder:"0"});		
+	$("#studentNumber").mask("9999-99999", {placeholder:"0"});
+
+	$('.downloadAction').on('click',function(event){
+		var link =  $('#downloadForm').attr('action') + '/' + $(this).val();
+		$('#downloadForm').prop('action', link);
+	});
+
 	$('#deleteWarning').on('show.bs.modal', function (event) {
 	  var button = $(event.relatedTarget); // Button that triggered the modal
 	  var title = button.data('title'); // Extract title from data-* attributes

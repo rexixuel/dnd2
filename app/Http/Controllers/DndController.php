@@ -129,9 +129,6 @@ class DndController extends Controller
 
     $zipFile->close();
 
-    // $zipFile = $zipper->zip('test.zip')->folder('test')->add($fileArray);
-    // $zipFile = $zipper->zip(storage_path('app/test.zip'))->add($fileArray)->close();
-
     return response()->download(storage_path("app/{$zipName}.zip"));
 
   }

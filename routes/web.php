@@ -18,21 +18,24 @@ Route::get('/', function () {
 Route::get('about', 'StaticController@about');
 Route::get('contact', 'StaticController@contact');
 
+// Upload Controller
 
-Route::get('upload', 'DndController@uploadDefault');
-Route::get('upload/{courseId}', 'DndController@upload');
-Route::post('upload','DndController@storeDefault' );
-Route::post('upload/{courseId}','DndController@store' );
+Route::get('upload/{courseId?}', 'UploadController@upload');
+Route::post('upload/{courseId?}','UploadController@store' );
 
-Route::get('download', 'DndController@downloadDefault');
-Route::get('download/{courseId}', 'DndController@download');
-Route::get('download/{courseId}/{sortField}', 'DndController@sort');
-Route::get('downloadSingle/{moduleId}', 'DndController@getFile');
-Route::post('download', 'DndController@searchDefault');
-Route::post('download/{courseId}', 'DndController@downloadAction');
-Route::get('downloadAll/{courseId}', 'DndController@downloadAll');
-Route::post('delete', 'DndController@deleteAction');
+// Download Controller
+Route::get('download/{courseId?}', 'DownloadController@download');
+Route::get('download/{courseId?}/search', 'DownloadController@search');
+Route::get('download/{courseId?}/{sortField}', 'DownloadController@sort');
+Route::get('downloadSingle/{moduleId}', 'DownloadController@getFile');
 
+Route::post('download/{courseId?}/search', 'DownloadController@search');
+Route::post('download/{courseId?}/downloadSelected', 'DownloadController@downloadSelected');
+
+Route::post('delete', 'DownloadController@deleteAction');
+Route::get('downloadAll/{courseId?}', 'DownloadController@downloadAll');
+
+// Quiz Controller
 Route::get('quiz', 'QuizController@takeQuizDefault');
 Route::get('quiz/{courseId}', 'QuizController@takeQuizTypeDefault');
 Route::get('quiz/{courseId}/{quizType}', 'QuizController@takeQuizType');

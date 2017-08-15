@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Upload'])
+@extends('layouts.app',['title' => 'COMPASS::Upload'])
 
 @section ('content')
 		<div class="container-fluid">	

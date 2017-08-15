@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Download'])
+@extends('layouts.app',['title' => 'COMPASS::Download'])
 
 @section ('content')
 		<!-- Small modal -->		
@@ -31,16 +31,16 @@
 				<h1 class="text-center"> Download Modules </h1>
 				<!-- <h3 class="text-center"> <small> Click the link to download module </small> </h3> -->
 			</div>
-			<form class="" method="POST" action="{{ asset('download/'.$courseId)}}" role="form">
+			<form class="" id="downloadForm" method="POST" action="{{ asset('download/'.$courseId)}}" role="form">
 			  <div class="form-inline">
-				<div class="searchForm" method="POST" action="{{ asset('download/'.$courseId)}}" role="form">
+				<div class="searchForm">
 					{{ csrf_field() }}
 					<div class="form-group">
 					  <div class="input-group">
 						<input type="text" class="form-control" name="searchField" id="searchField"
 						placeholder="Search by title, author, tags. Leave empty to browse all modules in specified course" />
 						<div class="input-group-btn">
-							<button type="submit" name="downloadAction" id="search" class="btn btn-default" value="search">
+							<button type="submit" name="downloadAction" id="search" class="btn btn-default downloadAction" value="search">
 								<i class="glyphicon glyphicon-search" aria-hidden="true"></i>								
 							</button>
 						</div>
@@ -54,15 +54,15 @@
 								 Delete Selected
 							</button>
 						@endif
-						<button type="submit" role="button" name="downloadAction" id="downloadSelected" class="btn btn-default btn-sm" value="downloadSelected"> Download Selected </button>
-						<button type="submit" role="button" name="downloadAction" id="downloadAll" class="btn btn-primary btn-sm" value="downloadAll"> Download All </button>
+						<button type="submit" role="button" name="downloadAction" id="downloadSelected" class="btn btn-default btn-sm downloadAction" value="downloadSelected"> Download Selected </button>
+						<a href="{{ asset('downloadAll/'.$courseId) }}" type="submit" role="button" name="downloadAction" id="downloadAll" class="btn btn-primary btn-sm" value="downloadAll"> Download All </a>
 					</div>										
 					<div class="clearfix"> </div>
 				</div>
 				
 			  </div>
 			@if (session('message'))
-				<div class="alert alert-success">
+				<div class="alert">
 					{!! session('message') !!}
 				</div>
 			@endif
@@ -100,9 +100,9 @@
 					</tbody>
 				@endforeach
 				</table>
-				@if (!empty($modules->toArray()))
+				@if (!empty($modules->count()))
 				<div class="btn btn-block">
-					{{$modules->links()}}
+					{{$modules->render()}}
 				</div>					
 				@endif
 			  </div>

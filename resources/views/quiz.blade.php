@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'Quiz'])
+@extends('layouts.app',['title' => 'COMPASS::Quiz'])
 
 @section ('content')
 		
