@@ -5,8 +5,8 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Scripts -->
-      <script src="{{ asset('js/jquery.min.js')}}" type="text/javascript"> </script>
-      <script src="{{ asset('js/dnd.js')}}" type="text/javascript"> </script>
+      <script src="{{ asset('js/jquery.min.js')}}"> </script>
+      <script src="{{ asset('js/dnd.js')}}"> </script>
       <script src="{{ asset('js/modal.js')}}"></script>      
       <script src="{{ asset('js/carousel.js')}}"></script>
       <script src="{{ asset('js/collapse.js')}}"></script>
@@ -19,7 +19,7 @@
       <link type="text/css" rel="stylesheet" href="{{ asset('css/font-awesome.css')}}" />
         <title> {{$title}} </title>
     </head>
-    <body class="container ">
+    <body class="container">
      <div class="bg-blurred">
       <div class="content">
         <div class="row">

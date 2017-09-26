@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\File;
 use App\Module;
 use App\Course;
 use App\Http\CustomClasses\DownloadModules;
+use App\Http\CustomClasses\DeleteModules;
 use App\Http\CustomClasses\SelectedModulesObject;
+use App\Http\CustomClasses\SearchModule;
 use Chumper\Zipper\Zipper;
 use Carbon\Carbon;
 use Auth;
@@ -32,51 +34,34 @@ class DownloadController extends Controller
   	$this->middleware('auth');
   }
 
+
   public function delete (Request $request)
   {
-  	 $module = new Module();
-	 $module = $module->find($request->deleteId);
-	  
-    // Storage::cloud()->delete($module->filePath);  
-	  Storage::disk()->delete($module->filePath);  
-	
-	  $title = $module->title;
-	  
-	  $module->delete();
-	  
-  	return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul> <li>'.$title." </li> </ul>");
-  }
-
-
-  public function deleteSelected ($moduleIds)
-  {
-    $selectedModules = $moduleIds;
-    
-    $module = new Module();
-
-    // commented below is for aws s3 cloud storage    
-    // Storage::cloud()->delete($module->filePath);  
-    //Storage::disk()->delete($module->filePath);  
-
     $titles = "";
-    foreach ($selectedModules as $selectedModule) {
-      $file = $module->find($selectedModule);
-      Storage::disk()->delete($file->filePath);
-      $file->delete();      
-      $titles =  $titles.'<li>'.$file->title. '</li>' ;
+  	$moduleIds = explode(',', $request["deleteId"]);
+
+	$modulesObject = new SelectedModulesObject();
+	$modules = $modulesObject->getSelectedModules($moduleIds);
+    
+    $module = new Module(); 
+    
+    $deleteModules = new DeleteModules($modules);
+    $deleteModules->delete();
+    
+    foreach ($deleteModules->titles as $title) {
+    	$titles = $titles."<li>".$title." </li>";
     }
-  
-    
-    
-    return back()->with('message', 'The following file(s) have been succesfully deleted: <br /> <br /> <ul> '.$titles.'</ul>');
+
+    return back()->with('message', "<div class='alert alert-success'>The following file(s) have been succesfully deleted: <br /> <br /> <ul> ".$titles."</ul> </div>");
   }     
 
   public function sort($courseId = 1, $sortField)
   {  	
-    $module = new Module;
-    $modules = $module->where('course_id','=',$courseId)                      
-                      ->orderBy($sortField)
-                      ->paginate(10);
+
+	$modulesObject = new SelectedModulesObject();
+	$modules = $modulesObject->getAllModules($courseId);
+	$modules = $modulesObject->sortModules($sortField);
+    
     $courses = new Course;
     $courses = $courses->all();
 
@@ -109,11 +94,11 @@ class DownloadController extends Controller
 		$modulesObject = new SelectedModulesObject();
 		$modules = $modulesObject->getSelectedModules($request["modules"]);
 
-		$getSelectedModule = new DownloadModules($modules, $courseId);
+		$downloadSelectedModule = new DownloadModules($modules);
 		
 		$zipName = Auth::user()->student_number.'_'.Carbon::now().'_'.$courseId;
 
-		return $getSelectedModule->zipModules($zipName);
+		return $downloadSelectedModule->zipModules($zipName);
 	}
 
   }
@@ -122,84 +107,32 @@ class DownloadController extends Controller
   {
 
 	$modulesObject = new SelectedModulesObject();
-	$modules = $modulesObject->getAllModules($courseId);
+	$modules = $modulesObject->getAllModules($courseId)->get();
 
-	$getSelectedModule = new DownloadModules($modules, $courseId);
-		
-    $zipName = Auth::user()->student_number.'_'.Carbon::now().'_'.$courseId;
+	$downloadAllModules = new DownloadModules($modules);
+	
+	$zipName = Auth::user()->student_number.'_'.Carbon::now().'_'.$courseId;
 
-
-	return $getSelectedModule->zipModules($zipName);
+	return $downloadAllModules->zipModules($zipName);
 
   }
 
   public function getFile($id)
   {
-  	$module = new Module();
-  	$module = $module->findOrFail($id);       
 
-    $mimeType = File::mimeType(storage_path("app/{$module->filePath}"));
-	
-	// for production. Storage does not support extraction of extension name natively
-  	$extension = explode('.', $module->filePath);
-	$extension = end($extension);
-    $mimeType = Storage::disk()->mimeType($module->filePath);
-  	
-  	return response()->download(storage_path("app/{$module->filePath}"), $module->title.'.'.$extension, 
-  								['Content-Type' => $mimeType]);
+	$modulesObject = new SelectedModulesObject();
+	$module = $modulesObject->getSelectedModules($id);
 
-    // below is for cloud storage
+	$downloadSingleModule = new DownloadModules($module);
 
-    // $mimeType = Storage::disk('s3')->mimeType($module->filePath);
-    // $path = Storage::cloud()->get($module->filePath);
-  	// return response($path,200, ['Content-Type' => $mimeType, 
-			// 	    'Content-Disposition' => 'attachment; filename="'.$module->title.'.'.$extension.'"']);
-  }
-
-
-  public function deleteAction(Request $request)
-  {
-    $moduleIds = explode(',', $request["deleteId"]);
-	  
-    if(count($moduleIds) > 1)
-    {
-      return $this->deleteSelected($moduleIds);
-    }
-    else
-    {
-      return $this->delete($request);
-    }
+  	return $downloadSingleModule->downloadSingleModule();
 
   }
 
   public function search(Request $request, $courseId = null)
   {
-  	
-  	$module = new Module();
-
-  	// courseRepository
-
-  	if(!empty($courseId))
-  	{  	
-	  	$modules = $module->where(function ($query) use($request) {
-	  					 	$query->where('title','LIKE','%'.$request['searchField'].'%')
-						 		  ->orWhere('author','LIKE','%'.$request['searchField'].'%')
-						     	  ->orWhere('tags','LIKE','%'.$request['searchField'].'%');
-						  })
-						 ->where('course_id','=',$courseId)
-	  				     ->paginate(10);
-  	}
-  	else
-  	{
-	  	$modules = $module
-	  					  ->where(function ($query) use($request) {
-	  					 	$query->where('title','LIKE','%'.$request['searchField'].'%')
-						 		  ->orWhere('author','LIKE','%'.$request['searchField'].'%')
-						      	  ->orWhere('tags','LIKE','%'.$request['searchField'].'%');
-						  })	  					 	  					  
-	  					  ->orderBy('course_id')
-	  					  ->paginate(10);
-  	}
+  	$searchModule = new SearchModule($request);
+  	$modules = $searchModule->listModules();
 
   	$course = new Course();
   	$courses = $course::all();    

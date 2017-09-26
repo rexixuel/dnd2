@@ -27,13 +27,14 @@ Route::post('upload/{courseId?}','UploadController@store' );
 Route::get('download/{courseId?}', 'DownloadController@download');
 Route::get('download/{courseId?}/search', 'DownloadController@search');
 Route::get('download/{courseId?}/{sortField}', 'DownloadController@sort');
+Route::get('downloadAll/{courseId?}', 'DownloadController@downloadAll');
 Route::get('downloadSingle/{moduleId}', 'DownloadController@getFile');
 
 Route::post('download/{courseId?}/search', 'DownloadController@search');
 Route::post('download/{courseId?}/downloadSelected', 'DownloadController@downloadSelected');
 
-Route::post('delete', 'DownloadController@deleteAction');
-Route::get('downloadAll/{courseId?}', 'DownloadController@downloadAll');
+Route::post('delete', 'DownloadController@delete');
+
 
 // Quiz Controller
 Route::get('quiz', 'QuizController@takeQuizDefault');

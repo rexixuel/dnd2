@@ -2,41 +2,60 @@
 
 namespace App\Http\CustomClasses;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use App\Module;
 
+/**
 
-class SelectedModulesObject{
-	
+** This class is used to retrieve a collection of Module Records as Objects
+** An ARRAY of module IDs is required when retrieving only selected modules
+** Course ID is required when retrieving ALL modules for a selected course
 
-	public $modules;
+**/
+
+class SelectedModulesObject{	
+
+	public $module;
 
 	public function __construct()
 	{
-		
+	    $this->module = new Module();
 	}
 
+	//** An ARRAY of module IDs is required when retrieving only selected modules
 	public function getSelectedModules($moduleIds)
 	{
 
-	    $module = new Module();
-        $modules = $module->find($moduleIds);
+        $modules = $this->module->find($moduleIds);
 
 	    return $modules;
 
 	}
 
+	//** Course ID is required when retrieving ALL modules for a selected course
+	//** Did not set with default get() to enable method chaining
+
 	public function getAllModules($courseId)
 	{
+		
+		$modules = $this->module->where('course_id','=',$courseId);
 
-	    $module = new Module();
+	    return $modules;
 
-		$modules = $module->where('course_id','=',$courseId)->get()->toArray();
+	}
+
+	//** Course ID is required when retrieving ALL modules for a selected course
+	public function sortModules($sortField)
+	{
+
+		$modules = $this->module->orderBy($sortField)
+                      	   ->paginate(10);
+
 
 	    return $modules;
 
 	}	
+
+
 }
 
 ?>

@@ -11,7 +11,7 @@
     </head>
 
     <body class = "">
-      <div class="container-fluid">
+      <div class="container">
       <nav class="nav nav-header">
         <header class="nav navbar-header">
           <a href="/" class="navbar-brand navbar-left"> <img src="img/tmclogo3.png" />  </a>

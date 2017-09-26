@@ -10,7 +10,7 @@
 	      @endif
           <li>
             <a href="{{ URL::asset('download')}}"> <i class="fa fa-cloud-download" aria-hidden="true"></i>
- Download </a> 
+ Browse Modules </a> 
           </li>	
           <li>
             <a href="{{ URL::asset('logout')}}"> <i class="fa fa-sign-out" aria-hidden="true"></i>

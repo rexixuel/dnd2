@@ -61,7 +61,7 @@ $(document).ready(function(){
 	$("#studentNumber").mask("9999-99999", {placeholder:"0"});
 
 	$('.downloadAction').on('click',function(event){
-		var link =  $('#downloadForm').attr('action') + '/' + $(this).val();
+		var link =  $(this).data('action');
 		$('#downloadForm').prop('action', link);
 	});
 
@@ -78,17 +78,17 @@ $(document).ready(function(){
 		title = title + " " + $('.moduleChecked:checkbox:checked').length + " File(s)";
 		  
 		var selectedIds = [];
-		$('.moduleChecked:checkbox:checked').each(function () {		
+		$('.moduleChecked:checkbox:checked').each(function () {
 		  	selectedIds.push($(this).val())
 		});
+
 	  	modal.find('#deleteId').val(selectedIds);
 	  }
 	  else
 	  {
 	     var id = button.data('id'); // Extract id from data-* attributes
 	     modal.find('#deleteId').val(id);	  	
-	  }
-	  
+	  }	    	  
 
 	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 	  modal.find('#deleteWarningMessage').text(title + ' shall be deleted from server. Are you sure you want to continue?' );

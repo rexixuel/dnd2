@@ -1,4 +1,4 @@
-@extends('layouts.app',['title' => 'COMPASS::Download'])
+@extends('layouts.app',['title' => 'COMPASS::Browse Modules'])
 
 @section ('content')
 		<!-- Small modal -->		
@@ -13,7 +13,7 @@
 		         <p id="deleteWarningMessage"> </p> 
 		      </div> <!-- modal body -->
 		      <div class="modal-footer">
-		        <form class="form form-inline" method="POST" action="{{ asset('delete') }}" role="form">
+		        <form class="form form-inline" id="deleteForm" method="POST" action="{{ asset('delete') }}" role="form">
 				{{ csrf_field() }}
 				  <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>		
 				  <button type="submit" class="btn btn-danger" name="deleteId" id="deleteId">Delete</button>
@@ -28,7 +28,7 @@
 		<div class="container-fluid">	
 
 			<div class="pageTitle">
-				<h1 class="text-center"> Download Modules </h1>
+				<h1 class="text-center"> Browse Modules </h1>
 				<!-- <h3 class="text-center"> <small> Click the link to download module </small> </h3> -->
 			</div>
 			<form class="" id="downloadForm" method="POST" action="{{ asset('download/'.$courseId)}}" role="form">
@@ -48,13 +48,13 @@
 					</div>
 					<div class="form-group pull-right">
 						@if(Auth::user()->role < 1)
-							<button type="button" role="button" name="deleteAction" id="deleteAction" class="btn btn-danger btn-sm"
-									data-toggle="modal" data-target="#deleteWarning" data-title="Selected "
-									data-id="deleteSelected" value="deleteSelected">
+							<button type="button" role="button" name="deleteAction" id="deleteAction" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteWarning" data-title="Selected "
+							data-id="deleteSelected" value="deleteSelected">
 								 Delete Selected
 							</button>
 						@endif
-						<button type="submit" role="button" name="downloadAction" id="downloadSelected" class="btn btn-default btn-sm downloadAction" value="downloadSelected"> Download Selected </button>
+						<button type="submit" role="button" name="downloadAction" id="downloadSelected" class="btn btn-default btn-sm downloadAction" value="downloadSelected" 
+						data-action="{{ asset('download/'.$courseId.'/downloadSelected')}}"> Download Selected </button>
 						<a href="{{ asset('downloadAll/'.$courseId) }}" type="submit" role="button" name="downloadAction" id="downloadAll" class="btn btn-primary btn-sm" value="downloadAll"> Download All </a>
 					</div>										
 					<div class="clearfix"> </div>
@@ -90,8 +90,9 @@
 						<td> {{ $module->created_at }} </td>
 						<td> <a href="{{ asset('downloadSingle/'.$module->id)}}" class="btn btn-primary"> <i class="fa fa-cloud-download" aria-hidden="true"></i> </a> </td>
 						@if(Auth::user()->role < 1)
-							<td> <button class="btn btn-danger delete" type="button" data-toggle="modal" data-target="#deleteWarning" data-title="{{ $module->title }}"
-								data-id="{{$module->id}}" value="delete">
+							<td> <button class="btn btn-danger delete" type="button" data-toggle="modal" 
+							data-target="#deleteWarning" data-title="{{ $module->title }}"	data-id="{{$module->id}}" 
+							value="delete">
 							     	<i class="fa fa-trash" aria-hidden="true"></i> 
 							     </button> 
 							</td>

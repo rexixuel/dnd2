@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
+use App\Http\CustomClasses\DefaultFileValues;
+
 use App\Module;
 use App\Course;
 use Carbon\Carbon;
@@ -33,69 +35,51 @@ class UploadController extends Controller
 
   public function store (Request $request, $courseId = 1)
   {      
-  	$fileCount = 0;    
 
-	  do{
-  		$this->validate($request, [
-  	        'filePath.'.$fileCount => 'required',  	        
-  	    ]);
+	$fileCount = 0;
 
-  		$fileCount++;
+	do{
+		$this->validate($request, [
+	        'filePath.'.$fileCount => 'required',  	        
+	    ]);
 
-  	}while($fileCount < count($request['filePath']));
+		$fileCount++;
 
+	}while($fileCount < count($request['filePath']));
+	
   	$fileCount = 0;  	
   	$fileList = "";  	
     
   	do{
-
-      // Get the file from the request
-      $file = $request['filePath'][$fileCount];
+  	  	  	  
+  	  $defaultFileValues = new DefaultFileValues(['title'       => $request['title'][$fileCount],
+  	  											  'author'      => $request['author'][$fileCount],
+  	  											  'pages'       => $request['pages'][$fileCount],
+  	  											  'tags'        => $request['tags'][$fileCount],
+  	  											  'description' => $request['description'][$fileCount],
+  	  											  'filePath'    => $request['filePath'][$fileCount],
+  	  											  'courseId'    => $courseId,
+  	  	                                         ]);
+  	  $defaultFileValues->setDefaultFileValues();
 
 
       // store to public/storage/compreDump
-      $path = $file->store('compreDump');
-    	// $path = $file->store('compreDump', 's3','public');
-  		
-  		$moduleFields['filePath'] = $path;		
-  		if(empty($request['title'][$fileCount]))
-  		{
-  			$moduleFields['title'] = $request['filePath'][$fileCount]->getClientOriginalName();			
-  		}
-  		else
-  		{
-  			$moduleFields['title'] = $request['title'][$fileCount];			
-  		}
+      $path = $defaultFileValues->file->store('compreDump');
+    
+      // below is for cloud storage
+     // $path = $file->store('compreDump', 's3','public');
+  	
+  	  $moduleFields = $defaultFileValues->moduleFields;	
+  	  $moduleFields['filePath'] = $path;  	  
 
-      if(!empty($request['author'][$fileCount]))
-      {
-        $moduleFields['author'] = $request['author'][$fileCount];
-      }
+  	  $module = new Module();
 
-      if(!empty($request['pages'][$fileCount]))
-      {
-        $moduleFields['pages'] = $request['pages'][$fileCount];
-      }
+  	  // Get storage path and store to database
 
-      if(!empty($request['tags'][$fileCount]))
-      {
-        $moduleFields['tags'] = $request['tags'][$fileCount];        
-      }      
+  	  $module = $module->create($moduleFields);
+      $fileList = $fileList."<li>".$request['filePath'][$fileCount]->getClientOriginalName()."</li>";
 
-      if(!empty($request['description'][$fileCount]))
-      {
-        $moduleFields['description'] = $request['description'][$fileCount];
-      }
-
-  		$moduleFields['course_id'] = $courseId;
-  		$module = new Module();
-
-  		// Get storage path and store to database
-
-  		$module = $module->create($moduleFields);
-    		$fileList = $fileList."<li>".$request['filePath'][$fileCount]->getClientOriginalName()."</li>";
-
-  		$fileCount++;
+  	  $fileCount++;
     	
 
   	}while($fileCount < count($request['filePath']));
